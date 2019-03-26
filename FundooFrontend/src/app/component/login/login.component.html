@@ -1,0 +1,45 @@
+ <form>
+   <div class="divf">
+  <mat-card style="margin-top: 12%; margin-bottom: 12%"> 
+      <div>
+          <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input matInput placeholder="Placeholder">
+             <mat-icon matSuffix>email</mat-icon> 
+         <!-- <mat-hint>Hint</mat-hint>  -->
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field appearance="outline">
+            <mat-label>password</mat-label>
+            <input matInput placeholder="Placeholder">
+             <mat-icon matSuffix>visibility_off</mat-icon> 
+            <!-- <mat-hint>Hint</mat-hint>  -->
+          </mat-form-field>
+        </div>
+        <div class="example-button-row">
+          
+          <button mat-raised-button color="primary">Login</button>
+          &nbsp;
+          &nbsp;
+          &nbsp;
+          &nbsp;
+          &nbsp;
+          &nbsp;
+          &nbsp;
+          &nbsp;
+          
+        
+          <button mat-raised-button color="primary">Register</button>
+        </div>
+        <a  routerLink=".">ForgotPassword</a>
+  </mat-card>
+</div>
+</form> 
+
+<!-- <div class="example-container">
+  <mat-form-field>
+    <input matInput placeholder="Enter your email" [formControl]="email" required>
+    <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+  </mat-form-field>
+</div> -->
