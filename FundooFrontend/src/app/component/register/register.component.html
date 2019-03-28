@@ -1,17 +1,21 @@
-<form>
+
     <div class="flex-container">
         <mat-card mat-card style="margin-top: 8%;width: 60%;align-self: center;">
-            <div class="divf2">
+           
+        <div class="divf2">
         <mat-form-field appearance="outline">
           <mat-label>Firstname</mat-label>
-          <input matInput placeholder="Placeholder">
-           <mat-icon matSuffix>person</mat-icon> 
+          <input  matInput  placeholder="Firstname" name="firststName" type="firstName" 
+             [formControl]="firstName">
+            <mat-icon matSuffix>person</mat-icon> 
        <!-- <mat-hint>Hint</mat-hint>  -->
         </mat-form-field>
+
         <mat-form-field appearance="outline">
             <mat-label>Lastname</mat-label>
-            <input matInput placeholder="Placeholder">
-             <mat-icon matSuffix>person</mat-icon> 
+            <input  matInput  placeholder="LastName" name="LastName" type="lastName" 
+            [formControl]="lastName">
+            <mat-icon matSuffix>person</mat-icon> 
          <!-- <mat-hint>Hint</mat-hint>  -->
           </mat-form-field>
       </div>
@@ -19,29 +23,34 @@
       <div class="divf21">
           <mat-form-field appearance="outline" width="100%">
             <mat-label >Email</mat-label>
-            <input matInput placeholder="Placeholder" width="20%">
-             <mat-icon matSuffix>email</mat-icon> 
+            <input  matInput  placeholder="Email" name="email" type="email" 
+             [formControl]="email">
+            <mat-icon matSuffix>person</mat-icon> 
             <!-- <mat-hint>Hint</mat-hint>  -->
           </mat-form-field>
         </div>
-        <div class="divf3">
+        <div>
             <mat-form-field appearance="outline">
-              <mat-label>Password</mat-label>
-              <input matInput placeholder="Placeholder" type="password">
-               <mat-icon matSuffix>visibility_off</mat-icon> 
-              <!-- <mat-hint>Hint</mat-hint>  -->
-            </mat-form-field>
-            <mat-form-field appearance="outline">
-                <mat-label>ConfirmPassword</mat-label>
-                <input matInput placeholder="Placeholder" type="password">
-                 <mat-icon matSuffix>visibility_off</mat-icon> 
+                <mat-label>Mobilenumber</mat-label>
+                <input  matInput  placeholder="mobilenumber" name="mobileNumber" type="number" 
+                [formControl]="mobileNumber">
+            <mat-icon matSuffix>person</mat-icon> 
                 <!-- <mat-hint>Hint</mat-hint>  -->
               </mat-form-field>
           </div>
+        <div class="divf3">
+            <mat-form-field appearance="outline">
+              <mat-label>Password</mat-label>
+              <input  matInput  placeholder="Password" name="password" type="password" 
+             [formControl]="password">
+            <mat-icon matSuffix>person</mat-icon> 
+              <!-- <mat-hint>Hint</mat-hint>  -->
+            </mat-form-field>
+          </div>
+             
             <div class="example-button-row" class="divf2">
           
-                <button mat-raised-button color="primary">next</button>
+                <button mat-raised-button color="primary" (click)="submit()">next</button>
                </div>
     </mat-card>
   </div>
-</form>

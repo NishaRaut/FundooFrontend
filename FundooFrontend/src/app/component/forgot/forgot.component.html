@@ -1,0 +1,22 @@
+<div fxLayout="column" fxLayoutAlign="center center">
+    <mat-card  mat-card style="margin-top: 8%;width: 60%;align-self: center;">
+        <mat-card-header>
+            <mat-card-title>Fundoo forgot</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+                <div>
+                    <mat-form-field appearance="outline">
+                        <mat-label>email</mat-label>
+                        <input  matInput  placeholder="email" name="email" type="email" 
+                        [formControl]="email">
+                       <mat-icon matSuffix>person</mat-icon> 
+                      </mat-form-field>
+
+                     <div>
+                        <button mat-raised-button  color="primary" type="submit">Submit</button>
+                       <button mat-raised-button color="primary" (click)="navigateToRegistration();">Clear</button> 
+                       </div>
+           
+          </mat-card-content>
+          </mat-card>
+</div>

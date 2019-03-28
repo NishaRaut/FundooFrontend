@@ -1,45 +1,34 @@
- <form>
-   <div class="divf">
-  <mat-card style="margin-top: 12%; margin-bottom: 12%"> 
-      <div>
-          <mat-form-field appearance="outline">
-            <mat-label>Email</mat-label>
-            <input matInput placeholder="Placeholder">
-             <mat-icon matSuffix>email</mat-icon> 
-         <!-- <mat-hint>Hint</mat-hint>  -->
-          </mat-form-field>
-        </div>
-        <div>
-          <mat-form-field appearance="outline">
-            <mat-label>password</mat-label>
-            <input matInput placeholder="Placeholder">
-             <mat-icon matSuffix>visibility_off</mat-icon> 
-            <!-- <mat-hint>Hint</mat-hint>  -->
-          </mat-form-field>
-        </div>
-        <div class="example-button-row">
-          
-          <button mat-raised-button color="primary">Login</button>
-          &nbsp;
-          &nbsp;
-          &nbsp;
-          &nbsp;
-          &nbsp;
-          &nbsp;
-          &nbsp;
-          &nbsp;
-          
-        
-          <button mat-raised-button color="primary">Register</button>
-        </div>
-        <a  routerLink=".">ForgotPassword</a>
-  </mat-card>
-</div>
-</form> 
+<div fxLayout="column" fxLayoutAlign="center center">
+<mat-card style="margin-top:15%;">
+    <mat-card-header>
+        <mat-card-title>Fundoo Login</mat-card-title>
+      </mat-card-header>
 
-<!-- <div class="example-container">
-  <mat-form-field>
-    <input matInput placeholder="Enter your email" [formControl]="email" required>
-    <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
-  </mat-form-field>
-</div> -->
+   <mat-card-content>
+      <form [formGroup]="loginForm" (ngSubmit)="onLoginSubmit()">
+      <mat-form-field class="full-width">
+            <mat-label>Email</mat-label>
+            <input  matInput  placeholder="Email" name="email" type="email" 
+            formControlName="email" [(ngModel)]="user.email">
+            <mat-icon matSuffix>email</mat-icon> 
+         </mat-form-field>
+
+         <mat-form-field class="full-width">
+            <mat-label>Password</mat-label>
+            <input  matInput  placeholder="Password" name="password" type="password" 
+            formControlName="password" [(ngModel)]="user.password">
+            <mat-icon matSuffix>visibility_off</mat-icon> 
+         </mat-form-field>
+    
+
+      
+       <div>
+       <button mat-raised-button  color="primary" type="submit">Login</button>
+      <button mat-raised-button color="primary" (click)="navigateToRegistration();">Registration</button> 
+      </div>
+      <br><br><a routerLink="/forgotpassword">Forgot password?</a>
+
+</form>
+</mat-card-content>
+</mat-card>
+</div>
