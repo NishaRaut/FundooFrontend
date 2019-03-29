@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Login } from '../model/login';
+import { Register } from '../model/register';
 
 @Injectable({
   providedIn: 'root'
@@ -9,17 +10,20 @@ import { Login } from '../model/login';
 
 export class ServiceService {
 
-  data:any;
 
+  constructor(private http: HttpClient) { }
 
-  constructor(private http:HttpClient) { }
+  // tslint:disable-next-line:member-ordering
+  data: any;
 
-  private url ='http://localhost:7070/'
-
-  // public login(login: Login):any {
-  //   return this.http.post(this.url+'login', login,{observe:"response"});
-  // }
-  public login(data):any {
-    return this.http.post(this.url+'login', data);
+  private url = 'http://localhost:7070/';
+  public login(user: Login): any {
+    return this.http.post<Login>(this.url + 'login', user);
   }
+
+    // tslint:disable-next-line:align
+    public register(user: Register): any {
+  return this.http.post<Register>(this.url + 'register', user);
+
+}
 }

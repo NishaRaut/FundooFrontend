@@ -9,9 +9,7 @@ import { FormControl, Validators } from '@angular/forms';
 export class ForgotComponent implements OnInit {
 
   constructor() { }
-  email = new FormControl('', [ Validators.required, Validators.email]);
+  email = new FormControl('', [Validators.required, Validators.email]);
   ngOnInit() {
   }
-  
-
 }

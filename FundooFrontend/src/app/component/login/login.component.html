@@ -1,34 +1,31 @@
-<div fxLayout="column" fxLayoutAlign="center center">
-<mat-card style="margin-top:15%;">
-    <mat-card-header>
-        <mat-card-title>Fundoo Login</mat-card-title>
-      </mat-card-header>
-
-   <mat-card-content>
-      <form [formGroup]="loginForm" (ngSubmit)="onLoginSubmit()">
-      <mat-form-field class="full-width">
-            <mat-label>Email</mat-label>
-            <input  matInput  placeholder="Email" name="email" type="email" 
-            formControlName="email" [(ngModel)]="user.email">
-            <mat-icon matSuffix>email</mat-icon> 
-         </mat-form-field>
-
-         <mat-form-field class="full-width">
-            <mat-label>Password</mat-label>
-            <input  matInput  placeholder="Password" name="password" type="password" 
-            formControlName="password" [(ngModel)]="user.password">
-            <mat-icon matSuffix>visibility_off</mat-icon> 
-         </mat-form-field>
-    
-
-      
+<div  fxLayout="row" fxLayoutAlign="center center" style="margin-top: 150px;">
+   <mat-card >
+     <mat-card-content>
+        
        <div>
-       <button mat-raised-button  color="primary" type="submit">Login</button>
-      <button mat-raised-button color="primary" (click)="navigateToRegistration();">Registration</button> 
-      </div>
-      <br><br><a routerLink="/forgotpassword">Forgot password?</a>
-
-</form>
-</mat-card-content>
-</mat-card>
-</div>
+         <mat-form-field appearance="outline" width="100%">
+           <mat-label>Email</mat-label>
+           <input matInput placeholder="Email" name="email" type="email" [formControl]="email">
+           <mat-icon matSuffix>email</mat-icon>
+            <mat-hint>Hint</mat-hint>  
+          </mat-form-field>
+       </div>
+       
+       <div>
+         <mat-form-field appearance="outline">
+           <mat-label>Password</mat-label>
+           <input matInput placeholder="Password" name="password" type="password" [formControl]="password">
+           <mat-icon matSuffix>visibility-on</mat-icon>
+            <mat-hint>Hint</mat-hint>
+          </mat-form-field>
+       </div>
+ 
+       <div>
+ 
+         <button mat-raised-button color="primary" (click)="submit()">login</button>
+         &nbsp;
+         <button mat-raised-button color="primary" (click)="register()">register</button>
+       </div>
+     </mat-card-content>
+   </mat-card>
+ </div> 

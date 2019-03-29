@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Validators, FormGroup, FormBuilder } from '@angular/forms';
+import { Validators, FormGroup, FormBuilder, FormControl } from '@angular/forms';
 import { Login } from 'src/app/model/login';
 import { MatSnackBar } from '@angular/material';
 import { ServiceService } from 'src/app/services/service.service';
@@ -16,48 +16,39 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
 
 
-  user: Login = new Login();
+  // user: Login = new Login();
 
   loginForm: FormGroup;
+  matsnackbar: any;
 
-  constructor(private formBuilder: FormBuilder, private serviceService: ServiceService,private router: Router,
-     private matsnackbar: MatSnackBar,) { }
-
+  constructor(private formBuilder: FormBuilder, private serviceService: ServiceService, private router: Router) { }
+  email = new FormControl('', [Validators.required, Validators.email]);
+  password = new FormControl('', [Validators.required, Validators.minLength(5)]);
   ngOnInit() {
-    this.loginForm = this.formBuilder.group({
-      'emailId': [this.user.email,[ Validators.required,Validators.email]],
-      'password': [this.user.password, [Validators.required, Validators.minLength(5)]]
-    });
   }
-  
-  onLoginSubmit() 
-  {
-    
-    console.log(this.user.email);
+  submit() {
+    console.log(this.email.value);
+    const user = {
+      email : this.email.value,
+      password : this.password.value
+    };
 
-    this.serviceService.login(this.user).subscribe(
+    this.serviceService.login(user).subscribe(
       data => {
-        if (data.body.code == 200) {
+        if (data.code === 200) {
           this.matsnackbar.open(' Login Successfully ', 'LogIn', {
             duration: 2000,
           });
-          localStorage.setItem('Authorization', data.headers.get('Authorization'));
-          // this.router.navigate(['./home']);
-        }
-        else {
+        } else {
           console.log(data);
-          this.matsnackbar.open(data.statusMessage, "Login Fails")
+          this.matsnackbar.open(data.statusMessage, 'Login Failed');
         }
       },
 
       error => {
-        console.log("Error", error);
+        console.log('Error', error);
       }
     );
-  }
-
-  navigateToRegistration(): void {
-    this.router.navigate(["/register"]);
   }
 
 }

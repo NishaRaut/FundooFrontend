@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-reset',
@@ -8,7 +9,8 @@ import { Component, OnInit } from '@angular/core';
 export class ResetComponent implements OnInit {
 
   constructor() { }
-
+  password = new FormControl('', [Validators.required, Validators.min(3)]);
+  confirmPassword = new FormControl('', [Validators.required, Validators.min(3)]);
   ngOnInit() {
   }
 
