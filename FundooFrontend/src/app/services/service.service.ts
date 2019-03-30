@@ -17,13 +17,13 @@ export class ServiceService {
   data: any;
 
   private url = 'http://localhost:7070/';
-  public login(user: Login): any {
-    return this.http.post<Login>(this.url + 'login', user);
-  }
-
     // tslint:disable-next-line:align
     public register(user: Register): any {
   return this.http.post<Register>(this.url + 'register', user);
+    }
+      public login(user: Login): any {
+    return this.http.post<Login>(this.url + 'login', user);
+  }
 
 }
-}
+

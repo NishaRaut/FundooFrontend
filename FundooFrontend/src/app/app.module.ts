@@ -49,6 +49,7 @@ import {
   MatTreeModule,
 
 } from '@angular/material';
+import { DashboardComponent } from './component/dashboard/dashboard.component';
 
 
 @NgModule({
@@ -57,7 +58,8 @@ import {
     LoginComponent,
         RegisterComponent,
        ForgotComponent,
-     ResetComponent
+     ResetComponent,
+     DashboardComponent
 
 
 
@@ -85,7 +87,6 @@ import {
         MatMenuModule,
         LayoutModule,
         MatToolbarModule
-
 
 
   ],
