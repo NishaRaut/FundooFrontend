@@ -1,30 +1,60 @@
-<div>
-  <mat-toolbar color="primary">
-    <div>
-      <button mat-icon-button="menu">
-        <mat-icon>menu</mat-icon>
-      </button>
-    </div>
-
-    <div style="display: flex">
-      <div>
-        <img style="width:12%" id="image" src="../../../assets/images/keep.png" width="3%" margin-left="1%">
+<div fxLayout="column" fxLayoutAlign="start start" fxFlex="100">
+  <mat-toolbar color="primary" fxLayout="row" fxFlex="100">
+    
+      <div class="app-icon" fxLayout="row" fxLayoutAlign="start start" fxLayoutAlign="space-around center" fxFlex="15" fxFlex.xs="25">
+        <button mat-icon-button (click)="sidenav.toggle()" fxShow="true">
+          <mat-icon>menu</mat-icon>
+        </button>
+        <div class="img-icon" fxLayoutAlign="space-between center">
+            <img class="img" src="../../../assets/images/keep-one.png" >
+        <span fxHide.xs="true">Keep</span>
+        </div>
       </div>
-      <div>
-        <span>Keep</span>
+
+      <div class="search" fxLayout="row" fxLayoutAlign="space-between center" fxFlex.xs="40" fxFlex="55">
+        <button mat-icon-button fxFlex="10" fxHide.xs="true">
+          <mat-icon >search</mat-icon>
+        </button>
+        <input fxFlex="90" mat-input placeholder="Search">
+
       </div>
-    </div>
 
-    <div>
-      <form margin-inline-start="75%">
-        <input #search type="search" (blur)="filled=search.value?true:false">
-        <mat-icon margin-left="5%">refresh</mat-icon>
-        <mat-icon>settings</mat-icon>
-        <mat-icon>view_stream</mat-icon>
-        <mat-icon>google_apps</mat-icon>
-      </form>
-    </div>
+      <div fxLayout="row" fxLayoutAlign="space-around center" fxFlex="35">
+        <mat-icon fxFlex="5">refresh</mat-icon>
+        <mat-icon fxFlex="5">settings</mat-icon>
+        <mat-icon fxFlex="5">view_stream</mat-icon>
+        <mat-icon fxFlex="5">account_circle</mat-icon>
 
-
+      </div>
   </mat-toolbar>
+  
+<!-- <div> -->
+ 
+  <!-- <mat-sidenav-container fxFlexFill>
+    <mat-sidenav #sidenav>
+      <mat-nav-list>
+        <a href="#" mat-list-item>
+          <mat-icon>notes</mat-icon>
+          Notes
+        </a>
+        <a href="#" mat-list-item>
+          <mat-icon>message</mat-icon>
+          Messages
+        </a>
+        <a href="#" mat-list-item>
+          <mat-icon>account_box</mat-icon>
+          My Account
+        </a>
+        <a href="#" mat-list-item>
+          <mat-icon>lock</mat-icon>
+          My Account
+        </a>
+        <a (click)="sidenav.toggle()" mat-list-item>
+          <mat-icon>close</mat-icon> Close
+        </a>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content fxFlexFill>Main content</mat-sidenav-content>
+  </mat-sidenav-container>
+</div> -->
 </div>
