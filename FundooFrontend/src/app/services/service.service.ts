@@ -9,6 +9,7 @@ import { Register } from '../model/register';
 
 
 export class ServiceService {
+  [x: string]: any;
 
 
   constructor(private http: HttpClient) { }
@@ -16,7 +17,7 @@ export class ServiceService {
   // tslint:disable-next-line:member-ordering
   data: any;
 
-  private url = 'http://localhost:7070/';
+  private url = 'http://localhost:8080/';
     // tslint:disable-next-line:align
     public register(user: Register): any {
   return this.http.post<Register>(this.url + 'register', user);
