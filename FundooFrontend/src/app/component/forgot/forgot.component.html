@@ -1,16 +1,16 @@
-<div  fxLayout="row" fxLayoutAlign="center center" style="margin-top: 150px;">
-    <mat-card  mat-card style="margin-top: 8%;width: 20%;align-self: center;">
+<div class="imageforgot">
+<div  fxLayout="row" fxLayoutAlign="center center">
+    <mat-card style="background:#464240de; margin-top: 150px;" >
         <mat-card-header>
             <mat-card-title>Fundoo forgot</mat-card-title>
           </mat-card-header>
           <mat-card-content>
-                <div>
-                    <mat-form-field appearance="outline">
-                        <mat-label>email</mat-label>
-                        <input  matInput  placeholder="email" name="email" type="email" 
-                        [formControl]="email">
-                       <mat-icon matSuffix>email</mat-icon> 
-                      </mat-form-field>
+                <div >
+                    <mat-form-field appearance="outline" width="100%">
+                        <mat-label>Email</mat-label>
+                        <input matInput placeholder="Email" name="email" type="email" [formControl]="email">
+                        <mat-icon matSuffix>email</mat-icon>
+                       </mat-form-field>
                 </div>
                      <div>
                         <button mat-raised-button  color="primary">Submit</button>
@@ -19,4 +19,5 @@
            
           </mat-card-content>
           </mat-card>
+</div>
 </div>

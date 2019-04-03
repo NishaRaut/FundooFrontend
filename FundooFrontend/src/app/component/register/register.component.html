@@ -1,7 +1,8 @@
-<div class="flex-container">
-  <mat-card mat-card style="margin-top: 8%;width: 60%;align-self: center;">
+<div class="registerimage">
+<div fxLayout="row" fxLayoutAlign="center center">
+  <mat-card style="background:#e0ebe8c2;margin-top: 150px;">
     <mat-card-content>
-      <div class="divf2">
+      <div>
         <mat-form-field appearance="outline">
           <mat-label>Firstname</mat-label>
           <input matInput placeholder="Firstname" name="firststName" type="firstName" [formControl]="firstName">
@@ -17,7 +18,7 @@
         </mat-form-field>
       </div>
 
-      <div class="divf21">
+      <div>
         <mat-form-field appearance="outline" width="100%">
           <mat-label>Email</mat-label>
           <input matInput placeholder="Email" name="email" type="email" [formControl]="email">
@@ -32,8 +33,7 @@
           <mat-icon matSuffix>person</mat-icon>
           <!-- <mat-hint>Hint</mat-hint>  -->
         </mat-form-field>
-      </div>
-      <div class="divf3">
+      
         <mat-form-field appearance="outline">
           <mat-label>Password</mat-label>
           <input matInput placeholder="Password" name="password" type="password" [formControl]="password">
@@ -42,10 +42,11 @@
         </mat-form-field>
       </div>
 
-      <div class="example-button-row" class="divf2">
+      <div >
 
         <button mat-raised-button color="primary" (click)="submit()">next</button>
       </div>
     </mat-card-content>
   </mat-card>
+</div>
 </div>

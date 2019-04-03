@@ -1,22 +1,21 @@
-<div  fxLayout="row" fxLayoutAlign="center center" style="margin-top: 150px;">
-   <mat-card style="background:#3b204113">
-     <mat-card-content>
-        
-       <div>
+<div class="loginimage">
+<div  fxLayout="row" fxLayoutAlign="center center">
+   <mat-card style="background:#e0ebe8c2;margin-top: 150px;">
+    
+       
+        <div>
          <mat-form-field appearance="outline" width="100%">
            <mat-label>Email</mat-label>
            <input matInput placeholder="Email" name="email" type="email" [formControl]="email">
            <mat-icon matSuffix>email</mat-icon>
-            <mat-hint>Hint</mat-hint>  
           </mat-form-field>
-       </div>
+         </div>
        
        <div>
          <mat-form-field appearance="outline">
            <mat-label>Password</mat-label>
            <input matInput placeholder="Password" name="password" type="password" [formControl]="password">
            <mat-icon matSuffix>visibility_on</mat-icon>
-            <mat-hint>Hint</mat-hint>
           </mat-form-field>
        </div>
  
@@ -26,6 +25,8 @@
          &nbsp;
          <button mat-raised-button color="primary" (click)="register()">register</button>
        </div>
-     </mat-card-content>
+   <a> </a>
    </mat-card>
  </div> 
+ 
+</div>

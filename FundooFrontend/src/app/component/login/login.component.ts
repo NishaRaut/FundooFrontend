@@ -19,9 +19,9 @@ export class LoginComponent implements OnInit {
   // user: Login = new Login();
 
   loginForm: FormGroup;
-  matsnackbar: any;
+  // : any;
 
-  constructor(private formBuilder: FormBuilder, private serviceService: ServiceService, private router: Router) { }
+  constructor(private matsnackbar :MatSnackBar,private formBuilder: FormBuilder, private serviceService: ServiceService, private router: Router) { }
   email = new FormControl('', [Validators.required, Validators.email]);
   password = new FormControl('', [Validators.required, Validators.minLength(5)]);
   ngOnInit() {
@@ -32,15 +32,16 @@ export class LoginComponent implements OnInit {
       email : this.email.value,
       password : this.password.value
     };
-
     this.serviceService.login(user).subscribe(
       data => {
-        if (data.code === 200) {
+      
+       
+        if (data.statuscode == 200) {
           this.matsnackbar.open(' Login Successfully ', 'LogIn', {
             duration: 2000,
           });
+          this.router.navigate(['dashboard']);
         } else {
-          console.log(data);
           this.matsnackbar.open(data.statusMessage, 'Login Failed');
         }
       },

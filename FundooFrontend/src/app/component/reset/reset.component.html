@@ -1,11 +1,12 @@
-<div fxLayout="column" fxLayoutAlign="center center">
-    <mat-card mat-card style="margin-top: 8%;width: 60%;align-self: center;">
+
+<div fxLayout="column" fxLayoutAlign="center center" class="imagereset" >
+    <mat-card style="background:#f5f36ca2;margin-top: 150px;">
        <mat-card-content>
             <div>
                 <mat-form-field appearance="outline">
                     <mat-label>password</mat-label>
                     <input matInput placeholder="password" name="password" type="password" [formControl]="password">
-                    <mat-icon matSuffix>person</mat-icon>
+                    <mat-icon matSuffix>visibility_on</mat-icon>
                 </mat-form-field>
 
             </div>
@@ -14,11 +15,12 @@
                     <mat-label>confirmPassword</mat-label>
                     <input matInput placeholder="confirmPassword" name="confirmPassword" type="email"
                         [formControl]="confirmPassword">
-                    <mat-icon matSuffix>person</mat-icon>
+                    <mat-icon matSuffix>visibility_on</mat-icon>
                 </mat-form-field>
             </div>
             <div>
                 <button mat-raised-button color="primary" >Submit</button>
+                &nbsp;&nbsp;&nbsp;
                 <button mat-raised-button color="primary" >Clear</button>
             </div>
         </mat-card-content>
