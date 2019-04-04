@@ -5,7 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RegisterComponent } from './component/register/register.component';
-import { MaterialModule } from 'src/app/material.module';
+ import { MaterialModule } from 'src/app/material.module';
 import { ServiceService } from './services/service.service';
 import { LoginComponent } from 'src/app/component/login/login.component';
 import { ForgotComponent } from './component/forgot/forgot.component';
@@ -50,6 +50,8 @@ import {
 
 } from '@angular/material';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
+import { AddnoteComponent } from './component/addnote/addnote.component';
+import { IconComponent } from './component/icon/icon.component';
 
 
 @NgModule({
@@ -59,7 +61,9 @@ import { DashboardComponent } from './component/dashboard/dashboard.component';
         RegisterComponent,
        ForgotComponent,
      ResetComponent,
-     DashboardComponent
+     DashboardComponent,
+     AddnoteComponent,
+     IconComponent
 
 
 

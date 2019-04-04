@@ -1,0 +1,28 @@
+<div fxLayout="column" fxLayoutAlign="center center">
+  <mat-card class="card" (click)=" showNote()" fxLayout="row" fxLayoutAlign="end center" >
+      <input class="input" matInput placeholder="Take a note...">
+      
+  <button mat-icon-button>
+  <mat-icon matTooltip="New list">assignment_turned_in</mat-icon>
+  </button>
+
+  <button mat-icon-button>
+    <mat-icon matTooltip="New note with drawing">brush</mat-icon>
+  </button>
+  <button mat-icon-button>
+    <mat-icon matTooltip="New note with image">image</mat-icon>
+    </button>
+  
+  </mat-card>
+</div >
+<div fxLayout="column" fxLayoutAlign="center center">
+    <mat-card class="secondcard">
+      <div style="background-color:aqua;">
+    <input class="input2" matInput placeholder="Title...">
+    </div> 
+    <div style="background-color:brown;">
+     <input class="input3" matInput placeholder="Take a note...">
+
+     
+   </mat-card>
+</div>
