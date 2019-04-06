@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Login } from '../model/login';
 import { Register } from '../model/register';
+import { Forgot } from '../model/forgot';
+import { EmailValidator } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
@@ -25,6 +27,11 @@ export class ServiceService {
       public login(user: Login): any {
     return this.http.post<Login>(this.url + 'login', user);
   }
+  public forgot(email:any): any {
+    return this.http.post<Forgot>(this.url+email, + 'forgot', );
+  }
+  
 
+  
 }
 

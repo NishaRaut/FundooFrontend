@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { ServiceService } from 'src/app/services/service.service';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-forgot',
@@ -9,30 +10,34 @@ import { Router } from '@angular/router';
   styleUrls: ['./forgot.component.scss']
 })
 export class ForgotComponent implements OnInit {
-  loginForm: FormGroup;
-  matsnackbar: any;
 
-  constructor(private formBuilder: FormBuilder, private serviceService: ServiceService, private router: Router) { }
+  constructor(private formBuilder: FormBuilder, private serviceService: ServiceService, private router: Router
+    ,private snackbar:MatSnackBar) { }
   email = new FormControl('', [Validators.required, Validators.email]);
-  password = new FormControl('', [Validators.required, Validators.minLength(5)]);
+
   ngOnInit() {
   }
   submit() {
     console.log(this.email.value);
     const user = {
-      email : this.email.value,
-      password : this.password.value
+      email : this.email.value
     };
 
-    this.serviceService.login(user).subscribe(
+    this.serviceService.forgot('forgetPassword?email='+this.email.value).subscribe(
       data => {
-        if (data.code === 200) {
-          this.matsnackbar.open(' ', 'LogIn', {
-            duration: 2000,
+        console.log(data);-
+        console.log("hello",data.code)
+        console.log("hello",data.statusCode)
+        if (data.statusCode === 200) {
+          this.snackbar.open(data.statusMessage, ' Forgot SuccessFully', {
+            duration: 3000,
+        
           });
+          this.router.navigate(['login']);
+  
         } else {
           console.log(data);
-          this.matsnackbar.open(data.statusMessage, '');
+          this.snackbar.open(data.statusMessage, ' forgot failed');
         }
       },
 
