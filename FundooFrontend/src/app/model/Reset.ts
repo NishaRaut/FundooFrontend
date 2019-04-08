@@ -1,3 +1,4 @@
 export class Reset {
-    password: string;
+    password:string;
+    confirmPassword:string;
 }

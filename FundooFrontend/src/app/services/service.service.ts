@@ -4,6 +4,7 @@ import { Login } from '../model/login';
 import { Register } from '../model/register';
 import { Forgot } from '../model/forgot';
 import { EmailValidator } from '@angular/forms';
+import { Reset } from '../model/Reset';
 
 @Injectable({
   providedIn: 'root'
@@ -30,7 +31,13 @@ export class ServiceService {
   public forgot(email:any): any {
     return this.http.post<Forgot>(this.url+email, + 'forgot', );
   }
-  
+  public reset(setp:Reset,token:string): any{
+    console.log(setp)
+    return this.http.put(this.url+'resetpassword/'+token,setp);
+  }
+
+
+
 
   
 }

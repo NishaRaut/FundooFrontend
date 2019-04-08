@@ -12,11 +12,11 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'forgot', component: ForgotComponent },
-  { path: 'reset', component: ResetComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'addnote', component: AddnoteComponent },
   { path: 'icon', component: IconComponent },
-  { path: '', component: LoginComponent }
+  { path: '', component: LoginComponent },
+  {path:'reset/:token',component:ResetComponent},
 ];
 
 @NgModule({
