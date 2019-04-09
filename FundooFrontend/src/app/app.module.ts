@@ -52,7 +52,8 @@ import {
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { AddnoteComponent } from './component/addnote/addnote.component';
 import { IconComponent } from './component/icon/icon.component';
-import { VerifyEmailComponent } from './component/verify-email/verify-email.component';
+import { CardsComponent } from './component/cards/cards.component';
+
 
 
 @NgModule({
@@ -65,7 +66,7 @@ import { VerifyEmailComponent } from './component/verify-email/verify-email.comp
      DashboardComponent,
      AddnoteComponent,
      IconComponent,
-     VerifyEmailComponent
+     CardsComponent
 
 
 

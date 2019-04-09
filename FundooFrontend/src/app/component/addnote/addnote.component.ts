@@ -8,8 +8,15 @@ import { Component, OnInit } from '@angular/core';
 export class AddnoteComponent implements OnInit {
 
   constructor() { }
-
+flag=false;
   ngOnInit() {
+    
+  }
+
+
+  showNote() {
+  
+    this.flag = ! this.flag;
   }
 
 }

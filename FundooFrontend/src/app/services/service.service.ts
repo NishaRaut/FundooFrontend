@@ -35,10 +35,5 @@ export class ServiceService {
     console.log(setp)
     return this.http.put(this.url+'resetpassword/'+token,setp);
   }
-
-
-
-
-  
 }
 

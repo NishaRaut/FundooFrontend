@@ -44,6 +44,9 @@ export class ResetComponent implements OnInit {
     
       });
       this.router.navigate(['login']);
+      localStorage.removeItem("reset");
+      localStorage.setItem("reset",data.token);
+
 
     } else {
       console.log(data);

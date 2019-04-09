@@ -1,5 +1,5 @@
 <div fxLayout="column" fxLayoutAlign="center center">
-  <mat-card class="card" (click)=" showNote()" fxLayout="row" fxLayoutAlign="end center" >
+  <mat-card class="card"  *ngIf="flag===false"  (click)=" showNote()" fxLayout="row" fxLayoutAlign="end center" >
       <input class="input" matInput placeholder="Take a note...">
       
   <button mat-icon-button>
@@ -15,12 +15,18 @@
   
   </mat-card>
 </div >
+
+
+
+
 <div fxLayout="column" fxLayoutAlign="center center">
-    <mat-card class="secondcard">
-      <div style="background-color:aqua;">
+    <mat-card class="secondcard"  *ngIf="flag===true" >
+      <div>
     <input class="input2" matInput placeholder="Title...">
     </div> 
-    <div style="background-color:brown;">
+    &nbsp;
+    &nbsp;
+    <div >
      <input class="input3" matInput placeholder="Take a note...">
      </div>
      

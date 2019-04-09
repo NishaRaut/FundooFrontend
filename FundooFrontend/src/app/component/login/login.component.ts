@@ -35,14 +35,20 @@ export class LoginComponent implements OnInit {
     this.serviceService.login(user).subscribe(
       data => {
       
-       
+       console.log(data)
         if (data.statuscode == 200) {
           this.matsnackbar.open(' Login Successfully ', 'LogIn', {
-            duration: 2000,
+            duration: 2000
           });
           this.router.navigate(['dashboard']);
+          localStorage.removeItem("login");
+          localStorage.setItem("login",data.token);
+
         } else {
-          this.matsnackbar.open(data.statusMessage, 'Login Failed');
+          this.matsnackbar.open(data.statusMessage, 'Login Failed',{
+            duration: 2000
+          });
+     
         }
       },
 
