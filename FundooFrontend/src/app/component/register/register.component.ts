@@ -23,6 +23,7 @@ export class RegisterComponent implements OnInit {
   mobileNumber = new FormControl('', Validators.required);
 
   ngOnInit() { }
+  
   submit() {
     const user = {
       firstName : this.firstName.value,

@@ -5,46 +5,51 @@
       <div>
         <mat-form-field appearance="outline">
           <mat-label>Firstname</mat-label>
-          <input matInput placeholder="Firstname" name="firststName" type="firstName" [formControl]="firstName">
+          <input matInput placeholder="Firstname" name="firststName" type="firstName" [formControl]="firstName" required>
           <mat-icon matSuffix>person</mat-icon>
-          <!-- <mat-hint>Hint</mat-hint>  -->
+          <mat-error *ngIf="firstName.invalid">First Name is required </mat-error> 
+        <!-- <mat-error *ngIf="password.invalid">Password is required</mat-error>  -->
+       
         </mat-form-field>
 
         <mat-form-field appearance="outline">
           <mat-label>Lastname</mat-label>
-          <input matInput placeholder="LastName" name="LastName" type="lastName" [formControl]="lastName">
+          <input matInput placeholder="LastName" name="LastName" type="lastName" [formControl]="lastName" required>
           <mat-icon matSuffix>person</mat-icon>
-          <!-- <mat-hint>Hint</mat-hint>  -->
+          <mat-error *ngIf="lastName.invalid">Last Name is required </mat-error> 
         </mat-form-field>
       </div>
 
       <div>
-        <mat-form-field appearance="outline" width="100%">
+        <mat-form-field appearance="outline" style="width: 100%;">
           <mat-label>Email</mat-label>
-          <input matInput placeholder="Email" name="email" type="email" [formControl]="email">
-          <mat-icon matSuffix>person</mat-icon>
-          <!-- <mat-hint>Hint</mat-hint>  -->
+          <input matInput placeholder="Email" name="email" type="email" [formControl]="email" required>
+          <mat-icon matSuffix>email</mat-icon>
+          <mat-error *ngIf="email.invalid">Email Name is required </mat-error> 
+         
         </mat-form-field>
       </div>
       <div>
         <mat-form-field appearance="outline">
           <mat-label>Mobilenumber</mat-label>
-          <input matInput placeholder="mobilenumber" name="mobileNumber" type="number" [formControl]="mobileNumber">
-          <mat-icon matSuffix>person</mat-icon>
-          <!-- <mat-hint>Hint</mat-hint>  -->
+          <input matInput placeholder="mobilenumber" name="mobileNumber"  [formControl]="mobileNumber" required>
+          <mat-icon matSuffix>local_phone</mat-icon>
+          <mat-error *ngIf="mobileNumber.invalid">Mobilenumber Name is required </mat-error> 
+         
         </mat-form-field>
-      
-        <mat-form-field appearance="outline">
-          <mat-label>Password</mat-label>
-          <input matInput placeholder="Password" name="password" type="password" [formControl]="password">
-          <mat-icon matSuffix>person</mat-icon>
-          <!-- <mat-hint>Hint</mat-hint>  -->
+     
+          <mat-form-field appearance="outline">
+            <mat-label>Password</mat-label>
+            <input  matInput placeholder="Password" name="password" type="password" [formControl]="password" [type]="!hide ? 'password' : 'text'"  required>
+            <mat-icon matSuffix  (click)="hide = !hide">{{!hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            <mat-error *ngIf="password.invalid">Password is required</mat-error>
+           
         </mat-form-field>
       </div>
 
       <div >
 
-        <button mat-raised-button color="primary" (click)="submit()">next</button>
+        <button mat-raised-button color="primary" (click)="submit()">Register</button>
       </div>
     </mat-card-content>
   </mat-card>

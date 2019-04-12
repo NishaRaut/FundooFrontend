@@ -1,5 +1,5 @@
-<div fxLayout="column" fxLayoutAlign="center center">
-  <mat-card class="card"  *ngIf="flag===false"  (click)=" showNote()" fxLayout="row" fxLayoutAlign="end center" >
+<div fxLayout="row" fxLayoutAlign="space-around start" >
+  <mat-card class="card"  *ngIf="flag===false"  (click)=" showNote()">
       <input class="input" matInput placeholder="Take a note...">
       
   <button mat-icon-button>
@@ -10,24 +10,24 @@
     <mat-icon matTooltip="New note with drawing">brush</mat-icon>
   </button>
   <button mat-icon-button>
-    <mat-icon matTooltip="New note with image">image</mat-icon>
-    </button>
-  
+      <mat-icon matTooltip="New note with image">image</mat-icon>
+      </button>
+    
   </mat-card>
 </div >
 
 
 
 
-<div fxLayout="column" fxLayoutAlign="center center">
-    <mat-card class="secondcard"  *ngIf="flag===true" >
-      <div>
+<div   fxLayout="column" fxLayoutAlign="space-around center" fxLayoutGap="50px">
+    <mat-card class="secondcard"  *ngIf="flag===true">
+      <div fxLayout="column" fxLayoutAlign="start start" >
     <input class="input2" matInput placeholder="Title...">
     </div> 
-    &nbsp;
-    &nbsp;
+  
     <div >
      <input class="input3" matInput placeholder="Take a note...">
+     <app-icon></app-icon>
      </div>
      
    </mat-card>

@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Login } from '../model/login';
 import { Register } from '../model/register';
 import { Forgot } from '../model/forgot';
 import { EmailValidator } from '@angular/forms';
 import { Reset } from '../model/Reset';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -35,5 +36,11 @@ export class ServiceService {
     console.log(setp)
     return this.http.put(this.url+'resetpassword/'+token,setp);
   }
+  getRequest(url): any {
+    return this.http.get(this.url+url,{
+      headers:new HttpHeaders().set("jwt_Token",localStorage.getItem("login")), 
+    observe:'response'});
+  }
+  
 }
 

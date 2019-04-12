@@ -1,28 +1,30 @@
 <div class="loginimage">
-<div  fxLayout="row" fxLayoutAlign="center center">
-   <mat-card style="background:#e0ebe8c2;margin-top: 150px;">
+<div  fxLayout="row" fxLayoutAlign="center center" >
+   <mat-card style="background:#e0ebe8c2;margin-top: 150px; width: 40%;">
     
        
-        <div>
-         <mat-form-field appearance="outline" width="100%">
+        <div >
+         <mat-form-field appearance="outline" style="width: 100%;">
            <mat-label>Email</mat-label>
-           <input matInput placeholder="Email" name="email" type="email" [formControl]="email">
+           <input  matInput placeholder="Email" name="email" type="email" [formControl]="email" required>
            <mat-icon matSuffix>email</mat-icon>
+           <mat-error *ngIf="email.invalid">Email is required</mat-error>
           </mat-form-field>
          </div>
        
        <div>
-         <mat-form-field appearance="outline">
+         <mat-form-field appearance="outline" style="width: 100%;">
            <mat-label>Password</mat-label>
-           <input matInput placeholder="Password" name="password" type="password" [formControl]="password">
-           <mat-icon matSuffix>visibility_on</mat-icon>
+           <input  matInput placeholder="Password" name="password" type="password" [formControl]="password" [type]="!hide ? 'password' : 'text'" required>
+           <mat-icon matSuffix  (click)="hide = !hide">{{!hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+           <mat-error *ngIf="password.invalid">Password is required</mat-error>
           </mat-form-field>
        </div>
  
-       <div>
+       <div fxLayoutGap="50px">
  
          <button mat-raised-button color="primary" (click)="submit()">login</button>
-         &nbsp;
+        
          <button mat-raised-button color="primary" (click)="register()">register</button>
        </div>
    <a> </a>

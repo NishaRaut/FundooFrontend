@@ -1,6 +1,6 @@
-<div>
-<div fxLayout="column" fxLayoutAlign="center center" fxFlex="100">
-  <mat-toolbar color="primary" fxLayout="row" fxFlex="100">
+
+ <div fxLayout="column" fxLayoutAlign="center center" fxFlex="100">
+  <mat-toolbar color="WHITE" fxLayout="row">
     
       <div class="app-icon" fxLayout="row" fxLayoutAlign="start start" fxLayoutAlign="space-around center" fxFlex="15" fxFlex.xs="25">
         <button mat-icon-button (click)="sidenav.toggle()" fxShow="true">
@@ -12,35 +12,34 @@
         </div>
       </div>
 
-      <div class="search" fxLayout="row" fxLayoutAlign="space-between center" fxFlex.xs="40" fxFlex="55">
+      <div class="search" fxLayout="row" fxLayoutAlign="space-around center" fxFlex.xs="40" fxFlex="66">
         <button mat-icon-button fxFlex="10" fxHide.xs="true">
           <mat-icon >search</mat-icon>
         </button>
-        <input fxFlex="90" mat-input placeholder="Search">
+        <input  fxFlex="90" mat-input placeholder="Search">
 
       </div>
 
-      <div fxLayout="row" fxLayoutAlign="space-around center" fxFlex="35">
-        <mat-icon fxFlex="5">refresh</mat-icon>
-        <mat-icon fxFlex="5">settings</mat-icon>
+      <div fxLayout="row" fxLayoutAlign="end center" fxLayoutAlign.xs="space-evenly center" fxFlex="10">
         <mat-icon fxFlex="5">view_stream</mat-icon>
 
        
-        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+        <button  mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
           <mat-icon>account_circle</mat-icon></button>
-        <mat-menu #menu="matMenu">
-        <mat-card >
-       <mat-card-footer></mat-card-footer>
-       <mat-icon >account_circle</mat-icon>
-       <button>add account</button>
-       <button>sign account</button>
-      </mat-card>
-    </mat-menu>
-      
+       
+       
 
       </div>
   </mat-toolbar>
   
+  <mat-menu #menu="matMenu">
+      <mat-card >
+     <mat-card-footer></mat-card-footer>
+     <mat-icon >account_circle</mat-icon>
+     <button  routerLink="/register" routerLinkActive="active">add account</button>
+     <button (click)="logout()">sign account</button>
+    </mat-card>
+  </mat-menu>
  <div class="cc">
  
    <mat-sidenav-container fxFlexFill>
@@ -82,10 +81,13 @@
       
       </mat-nav-list>
     </mat-sidenav>
-    <mat-sidenav-content fxFlexFill>
-      <app-addnote></app-addnote>
+    <mat-sidenav-content>
+        <app-addnote></app-addnote>
+        <app-cards></app-cards>
     </mat-sidenav-content>
   </mat-sidenav-container>
+
 </div> 
+
 </div>
-</div>
+

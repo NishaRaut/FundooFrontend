@@ -11,7 +11,7 @@ import { MatSnackBar } from '@angular/material';
 })
 export class ForgotComponent implements OnInit {
 
-  constructor(private formBuilder: FormBuilder, private serviceService: ServiceService, private router: Router
+  constructor( private serviceService: ServiceService, private router: Router
     ,private snackbar:MatSnackBar) { }
   email = new FormControl('', [Validators.required, Validators.email]);
 

@@ -19,11 +19,12 @@ export class LoginComponent implements OnInit {
   // user: Login = new Login();
 
   loginForm: FormGroup;
-  // : any;
+
 
   constructor(private matsnackbar :MatSnackBar,private formBuilder: FormBuilder, private serviceService: ServiceService, private router: Router) { }
   email = new FormControl('', [Validators.required, Validators.email]);
   password = new FormControl('', [Validators.required, Validators.minLength(5)]);
+  
   ngOnInit() {
   }
   submit() {
@@ -41,7 +42,8 @@ export class LoginComponent implements OnInit {
             duration: 2000
           });
           this.router.navigate(['dashboard']);
-          localStorage.removeItem("login");
+         
+          //localStorage.removeItem("login");
           localStorage.setItem("login",data.token);
 
         } else {
@@ -57,5 +59,9 @@ export class LoginComponent implements OnInit {
       }
     );
   }
-
+  register()
+  {
+    this.router.navigate(['register']);
+  }
+ 
 }
