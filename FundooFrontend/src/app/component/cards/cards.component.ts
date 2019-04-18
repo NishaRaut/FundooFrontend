@@ -7,10 +7,12 @@ import { ServiceService } from 'src/app/services/service.service';
   styleUrls: ['./cards.component.scss']
 })
 export class CardsComponent implements OnInit {
-  data:any;
+  data:any[];
   constructor( private httpService:ServiceService) { }
 
   ngOnInit() {
+    console.log("getting",this.data);
+    
     this.getNotes();
   }
 
@@ -20,7 +22,7 @@ export class CardsComponent implements OnInit {
     this.httpService.getRequest('allNotes').subscribe(
       response=>{
         this.data=response['body']
-        console.log(this.data)
+        console.log("info",this.data)
       },
       error => {
         console.log('Error', error);

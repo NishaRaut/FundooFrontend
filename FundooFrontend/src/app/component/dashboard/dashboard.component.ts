@@ -8,11 +8,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-
+  item:any[];
   constructor
   (private router:Router) { }
 
   ngOnInit() {
+    console.log("nisha",this.item);
+    
   }
 
   logout()
@@ -21,6 +23,15 @@ export class DashboardComponent implements OnInit {
 this.router.navigate(['login']);
 
 
+  }
+  notes(){
+    this.router.navigate(['dashboard','addnote']);
+  }
+  archive(){
+    this.router.navigate(['dashboard','archive']);
+  }
+  reminder(){
+    this.router.navigate(['dashboard','reminder']);
   }
 
 }

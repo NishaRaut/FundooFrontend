@@ -5,7 +5,10 @@ import { Register } from '../model/register';
 import { Forgot } from '../model/forgot';
 import { EmailValidator } from '@angular/forms';
 import { Reset } from '../model/Reset';
+
 import { Observable } from 'rxjs';
+import { NoteDTO } from '../model/note';
+//import { NoteDTO } from '../model/noteDTO';
 
 @Injectable({
   providedIn: 'root'
@@ -38,6 +41,18 @@ export class ServiceService {
   }
   getRequest(url): any {
     return this.http.get(this.url+url,{
+      headers:new HttpHeaders().set("jwt_Token",localStorage.getItem("login")), 
+    observe:'response'});
+  }
+  postRequest(url,noteDto:NoteDTO): any {
+    return this.http.post(this.url+url,noteDto,{
+      headers:new HttpHeaders().set("jwt_Token",localStorage.getItem("login")), 
+    observe:'response'});
+  }
+
+
+  putRequest(url,noteDto:NoteDTO): any {
+    return this.http.put(this.url+url,noteDto,{
       headers:new HttpHeaders().set("jwt_Token",localStorage.getItem("login")), 
     observe:'response'});
   }

@@ -1,12 +1,25 @@
  
-<div class="note" fxLayout="row" >
+<div  fxLayout="row" >
     <button mat-icon-button>
-        <mat-icon matTooltip="Remind me">add_alert</mat-icon>
+        <mat-icon matTooltip="Remind me"  mat-button [matMenuTriggerFor]="menu" (click)="reminder()">add_alert</mat-icon>
+        <mat-menu #menu="matMenu" xPosition="after" class="vert">
+          <button mat-menu-item  style="margin-top: -9%">Reminder:</button>
+
+          <!-- <label>
+            Date Time:
+            <input [owlDateTimeTrigger]="dt" [owlDateTime]="dt">
+            <owl-date-time #dt></owl-date-time>
+        </label> -->
+        
+          <button mat-menu-item style="margin-top: -12%" (click)="today()">Later today</button>
+          <button mat-menu-item style="margin-top: -12%">Tomorrow</button>
+          <button mat-menu-item style="margin-top: -12%">next week</button>
+         </mat-menu>
         </button>
       
-        <button mat-icon-button>
-          <mat-icon matTooltip="change color" mat-button [matMenuTriggerFor]="fab">palette</mat-icon>
-          <mat-menu #fab="matMenu">
+        <!-- <button mat-icon-button>
+          <mat-icon matTooltip="change color" mat-button [matMenuTriggerFor]="fab">palette</mat-icon> -->
+          <!-- <mat-menu #fab="matMenu">
             <div  fxLayout="row" fxLayoutAlign="space-around center">
               <button mat-mini-fab style="background-color: rgb(247, 86, 118);height:30px;width:30px;"></button>
               <button mat-mini-fab style="background-color:darkgoldenrod;height:30px;width:30px;"></button>
@@ -25,21 +38,41 @@
                 <button mat-mini-fab style="background-color: rgb(88, 194, 120);height:30px;width:30px;"></button>
                 <button mat-mini-fab style="background-color: rgb(134, 134, 92);height:30px;width:30px;"></button>
               </div>
-           </mat-menu>
-        </button>
+           </mat-menu> -->
+        <!-- </button> -->
+        <button mat-icon-button matTooltip="Change color" [matMenuTriggerFor]="colorlist">
+          <mat-icon style="margin-left: 16px;">color_lens</mat-icon>
+          </button>
+          
+          <mat-menu #colorlist="matMenu" [overlapTrigger]="false">
+          <ng-template matMenuContent>
+          <div class="buttons">
+          <div fxLayout="row" fxLayoutGap="10px" style="margin-top: 3px" *ngFor="let colors of arrayOfColors">
+          <div *ngFor="let color of colors">
+          <button class="colors" [ngStyle]="{ 'background-color': color.color }"
+          (click)="colorsEditon(color.color)" matTooltip="{{ color.name }}" mat-mini-fab></button>
+          <!--<button mat-icon-button [ngStyle]="{'color': color.colorCode}" (click)="changeColor(color.colorCode)">
+        <mat-icon style="font-size: 40px" class="colorIcons">fiber_manual_record</mat-icon>
+        </button>  -->
+        </div>
+          </div>
+          </div>
+          </ng-template>
+          </mat-menu>
 
         <button mat-icon-button>
           <mat-icon matTooltip="Add image">insert_photo</mat-icon>
           </button>
     
        <button mat-icon-button>
-      <mat-icon matTooltip="archive">archive</mat-icon>
+      <mat-icon matTooltip="archive" (click)="archive()">archive</mat-icon>
       </button>
 
     <button mat-icon-button>
-     <mat-icon matTooltip="more"  mat-button [matMenuTriggerFor]="menu">more_vert</mat-icon>
+     <mat-icon matTooltip="more"  mat-button [matMenuTriggerFor]="menu2" (click)="movetotrash(id)">more_vert</mat-icon>
      
-     <mat-menu #menu="matMenu" xPosition="after" class="vert">
+     <mat-menu #menu2="matMenu" xPosition="after" class="remind">
+      <button mat-menu-item  style="margin-top: -9%" (click)="trash()">Delete</button>
      <button mat-menu-item  style="margin-top: -9%">Add lebel</button>
      <button mat-menu-item style="margin-top: -12%">Add drawing</button>
      <button mat-menu-item style="margin-top: -12%">show checkbaxes</button>

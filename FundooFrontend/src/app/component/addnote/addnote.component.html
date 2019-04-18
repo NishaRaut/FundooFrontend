@@ -1,15 +1,15 @@
-<div fxLayout="row" fxLayoutAlign="space-around start" >
-  <mat-card class="card"  *ngIf="flag===false"  (click)=" showNote()">
-      <input class="input" matInput placeholder="Take a note...">
+<div  fxLayout="row" fxLayoutAlign="center center">
+  <mat-card class="card"  *ngIf="flag==false"  (click)=" showNote()">
+      <input class="input" matInput placeholder="Take a note..."  >
       
-  <button mat-icon-button>
+  <button mat-icon-button style="margin-left: 80px;">
   <mat-icon matTooltip="New list">assignment_turned_in</mat-icon>
   </button>
 
-  <button mat-icon-button>
+  <button mat-icon-button style="margin-left: 10px;">
     <mat-icon matTooltip="New note with drawing">brush</mat-icon>
   </button>
-  <button mat-icon-button>
+  <button mat-icon-button style="margin-left: 10px;">
       <mat-icon matTooltip="New note with image">image</mat-icon>
       </button>
     
@@ -19,16 +19,25 @@
 
 
 
-<div   fxLayout="column" fxLayoutAlign="space-around center" fxLayoutGap="50px">
-    <mat-card class="secondcard"  *ngIf="flag===true">
-      <div fxLayout="column" fxLayoutAlign="start start" >
-    <input class="input2" matInput placeholder="Title...">
+
+
+<div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px">
+    <mat-card class="secondcard"  *ngIf="flag==true">
+      <div >
+    <input class="title" placeholder="Title..." [formControl]="title">
     </div> 
   
-    <div >
-     <input class="input3" matInput placeholder="Take a note...">
-     <app-icon></app-icon>
-     </div>
+    <div  style="margin-top: 13px;" >
+     <input  class="title" placeholder="Take a note..." [formControl]="description">
      
+     </div>
+     <mat-card-footer>
+    <div fxLayout="row">
+     <app-icon></app-icon>
+     <button mat-button (click)=" createNote()">close</button>
+     <!-- <button (click)=" createNote()">close</button> -->
+    </div>
+    </mat-card-footer>
    </mat-card>
 </div>
+<app-cards></app-cards>

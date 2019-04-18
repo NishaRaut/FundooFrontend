@@ -53,6 +53,9 @@ import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { AddnoteComponent } from './component/addnote/addnote.component';
 import { IconComponent } from './component/icon/icon.component';
 import { CardsComponent } from './component/cards/cards.component';
+import { ArchiveComponent } from './component/archive/archive.component';
+import { PinComponent } from './pin/pin.component';
+import { ReminderComponent } from './component/reminder/reminder.component';
 
 
 
@@ -66,7 +69,10 @@ import { CardsComponent } from './component/cards/cards.component';
      DashboardComponent,
      AddnoteComponent,
      IconComponent,
-     CardsComponent
+     CardsComponent,
+     ArchiveComponent,
+     PinComponent,
+     ReminderComponent
 
 
 

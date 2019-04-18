@@ -7,16 +7,27 @@ import { ResetComponent } from './component/reset/reset.component';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { AddnoteComponent } from './component/addnote/addnote.component';
 import { IconComponent } from './component/icon/icon.component';
+import { CardsComponent } from './component/cards/cards.component';
+import { ArchiveComponent } from './component/archive/archive.component';
+import { ReminderComponent } from './component/reminder/reminder.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'forgot', component: ForgotComponent },
-  { path: 'dashboard', component: DashboardComponent },
-  { path: 'addnote', component: AddnoteComponent },
   { path: 'icon', component: IconComponent },
   { path: '', component: LoginComponent },
+  // { path: 'notes', component: CardsComponent },
   {path:'reset/:token',component:ResetComponent},
+  { path: 'dashboard', component: DashboardComponent,
+  children:[
+    { path: 'addnote', component: AddnoteComponent },
+    { path: '', component: AddnoteComponent },
+    { path: 'archive', component: ArchiveComponent },
+    { path: 'reminder', component: ReminderComponent },
+    { path: 'card', component: CardsComponent },
+  ]
+}
 ];
 
 @NgModule({

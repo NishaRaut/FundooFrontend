@@ -9,3 +9,19 @@
     height: 100vh;
     width: 100%;
 }
+.search
+{
+    background-color: rgba(230, 227, 227, 0.856); 
+     padding: 3px;   width: 98%; 
+     border-radius: 8px; 
+}
+.input
+{
+    width: 88%; 
+        font-size: 16px;
+         border: none !important;
+         background-color: rgba(230, 227, 227, 0.856); 
+}
+/deep/.mat-drawer-backdrop.mat-drawer-shown {
+    visibility: hidden !important;
+}

@@ -1,5 +1,6 @@
 
  <div fxLayout="column" fxLayoutAlign="center center" fxFlex="100">
+  
   <mat-toolbar color="WHITE" fxLayout="row">
     
       <div class="app-icon" fxLayout="row" fxLayoutAlign="start start" fxLayoutAlign="space-around center" fxFlex="15" fxFlex.xs="25">
@@ -8,21 +9,28 @@
         </button>
         <div class="img-icon" fxLayoutAlign="space-between center">
             <img class="img" src="../../../assets/images/keep-one.png" >
-        <span fxHide.xs="true">Keep</span>
+        <span fxHide.xs="true">Fundoo</span>
         </div>
       </div>
 
-      <div class="search" fxLayout="row" fxLayoutAlign="space-around center" fxFlex.xs="40" fxFlex="66">
+      <!-- <div class="search" fxLayout="row" fxLayoutAlign="space-around center" fxFlex.xs="40" fxFlex="66">
         <button mat-icon-button fxFlex="10" fxHide.xs="true">
           <mat-icon >search</mat-icon>
         </button>
         <input  fxFlex="90" mat-input placeholder="Search">
-
+      </div> -->
+      <div fxLayout="row" fxLayoutAlign="space-around center" fxFlex.xs="40" fxFlex="60">
+        <form class="search" >
+            <button mat-icon-button fxHide.xs="true" >
+                <mat-icon >search</mat-icon>
+              </button>
+              <input mat-input placeholder="Search" class="input">
+          </form>
       </div>
 
-      <div fxLayout="row" fxLayoutAlign="end center" fxLayoutAlign.xs="space-evenly center" fxFlex="10">
-        <mat-icon fxFlex="5">view_stream</mat-icon>
-
+      <div fxLayout="row" fxLayoutAlign="end center" fxLayoutAlign.xs="space-evenly center" fxFlex="20" fxLayoutGap="10px">
+        <mat-icon fxFlex="10">view_stream</mat-icon>
+          
        
         <button  mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
           <mat-icon>account_circle</mat-icon></button>
@@ -31,6 +39,7 @@
 
       </div>
   </mat-toolbar>
+
   
   <mat-menu #menu="matMenu">
       <mat-card >
@@ -40,20 +49,24 @@
      <button (click)="logout()">sign account</button>
     </mat-card>
   </mat-menu>
- <div class="cc">
+  
+ <div class="cc" >
  
    <mat-sidenav-container fxFlexFill>
-    <mat-sidenav #sidenav >
+    <mat-sidenav #sidenav style="width: 280px;"  mode="side">
       <mat-nav-list>
         <div>
-        <a href="#" mat-list-item>
-          <mat-icon>notes</mat-icon>
+        <div (click)="notes()">
+            <i class="material-icons">
+                wb_incandescent
+                </i>
           Notes
-        </a>
-        <a href="#" mat-list-item>
+        </div>
+        <div (click)="reminder()">
           <mat-icon>notifications</mat-icon>
-          reminders
-        </a>
+          reminders 
+        </div>
+        
       </div>
       <mat-divider></mat-divider>
       <div>
@@ -68,11 +81,11 @@
         </a>
       </div>
       <mat-divider></mat-divider>
-      <div>
-          <a href="#" mat-list-item>
+      <div >
+            <div (click)="archive()">
               <mat-icon>archive</mat-icon>
               archive 
-            </a>
+            </div>
             <a href="#" mat-list-item>
                 <mat-icon>delete</mat-icon>
               trash
@@ -82,8 +95,7 @@
       </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content>
-        <app-addnote></app-addnote>
-        <app-cards></app-cards>
+       <router-outlet ></router-outlet>
     </mat-sidenav-content>
   </mat-sidenav-container>
 
