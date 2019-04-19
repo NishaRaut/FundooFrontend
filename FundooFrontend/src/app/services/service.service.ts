@@ -56,6 +56,14 @@ export class ServiceService {
       headers:new HttpHeaders().set("jwt_Token",localStorage.getItem("login")), 
     observe:'response'});
   }
+
+
+
+  deleteRequest(url): any {
+    return this.http.delete(this.url+url,{
+      headers:new HttpHeaders().set("jwt_Token",localStorage.getItem("login")), 
+    observe:'response'});
+  }
   
 }
 

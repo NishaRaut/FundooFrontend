@@ -2,11 +2,11 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ServiceService } from 'src/app/services/service.service';
 
 @Component({
-  selector: 'app-archive',
-  templateUrl: './archive.component.html',
-  styleUrls: ['./archive.component.scss']
+  selector: 'app-trash',
+  templateUrl: './trash.component.html',
+  styleUrls: ['./trash.component.scss']
 })
-export class ArchiveComponent implements OnInit {
+export class TrashComponent implements OnInit {
   @Input() noteData:any;
   data:any[];
   constructor( private httpService:ServiceService) { }
@@ -36,3 +36,4 @@ id:any;
 
   
 }
+

@@ -17,29 +17,7 @@
          </mat-menu>
         </button>
       
-        <!-- <button mat-icon-button>
-          <mat-icon matTooltip="change color" mat-button [matMenuTriggerFor]="fab">palette</mat-icon> -->
-          <!-- <mat-menu #fab="matMenu">
-            <div  fxLayout="row" fxLayoutAlign="space-around center">
-              <button mat-mini-fab style="background-color: rgb(247, 86, 118);height:30px;width:30px;"></button>
-              <button mat-mini-fab style="background-color:darkgoldenrod;height:30px;width:30px;"></button>
-              <button mat-mini-fab style="background-color:darkgreen ;height:30px;width:30px;"></button>
-              <button mat-mini-fab style="background-color:olive;height:30px;width:30px;"></button>
-            </div>
-          <div>
-              <button mat-mini-fab style="background-color:slategray;height:30px;width:30px;"></button>
-              <button mat-mini-fab style="background-color: rgb(10, 51, 60);height:30px;width:30px;"></button>
-              <button mat-mini-fab style="background-color: rgb(99, 29, 43);height:30px;width:30px;"></button>
-              <button mat-mini-fab style="background-color: rgb(131, 70, 82);height:30px;width:30px;"></button>
-            </div>
-            <div>
-                <button mat-mini-fab style="background-color:rgba(35, 24, 192, 0.651);height:30px;width:30px;"></button>
-                <button mat-mini-fab style="background-color: rgb(149, 133, 194);height:30px;width:30px;"></button>
-                <button mat-mini-fab style="background-color: rgb(88, 194, 120);height:30px;width:30px;"></button>
-                <button mat-mini-fab style="background-color: rgb(134, 134, 92);height:30px;width:30px;"></button>
-              </div>
-           </mat-menu> -->
-        <!-- </button> -->
+     
         <button mat-icon-button matTooltip="Change color" [matMenuTriggerFor]="colorlist">
           <mat-icon style="margin-left: 16px;">color_lens</mat-icon>
           </button>
@@ -50,7 +28,7 @@
           <div fxLayout="row" fxLayoutGap="10px" style="margin-top: 3px" *ngFor="let colors of arrayOfColors">
           <div *ngFor="let color of colors">
           <button class="colors" [ngStyle]="{ 'background-color': color.color }"
-          (click)="colorsEditon(color.color)" matTooltip="{{ color.name }}" mat-mini-fab></button>
+          (click)="colorsEditon(color.color)" (click)="setColor(color.color)" matTooltip="{{ color.name }}" mat-mini-fab></button>
           <!--<button mat-icon-button [ngStyle]="{'color': color.colorCode}" (click)="changeColor(color.colorCode)">
         <mat-icon style="font-size: 40px" class="colorIcons">fiber_manual_record</mat-icon>
         </button>  -->
@@ -73,6 +51,8 @@
      
      <mat-menu #menu2="matMenu" xPosition="after" class="remind">
       <button mat-menu-item  style="margin-top: -9%" (click)="trash()">Delete</button>
+      <button mat-menu-item  style="margin-top: -9%" (click)= DeleteNote()>Delete permenently</button>
+
      <button mat-menu-item  style="margin-top: -9%">Add lebel</button>
      <button mat-menu-item style="margin-top: -12%">Add drawing</button>
      <button mat-menu-item style="margin-top: -12%">show checkbaxes</button>

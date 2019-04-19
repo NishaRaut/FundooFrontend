@@ -10,6 +10,7 @@ export class IconComponent implements OnInit {
   @Input() noteData:any;
   data:any;
   card:any
+  colors:any;
   constructor(private httpService:ServiceService) { }
   flag=false;
   ngOnInit() {
@@ -39,8 +40,31 @@ arrayOfColors=[
 
 colorsEditon(name) {
   console.log(name, 'color........');
+  this.colors=name;
+  console.log(this.colors);
   this.countChange.emit(name);
   }
+
+
+
+
+  setColor(color)
+  {
+
+    console.log(this.noteData.id)
+    this.httpService.postRequest('notes/color/'+this.noteData.id+'?color='+this.colors,null).subscribe(
+      response=>{
+
+        console.log(response)
+        //this.colors=name;
+    }
+
+    );
+  }
+
+
+
+
 
   archive(){
     console.log("archive is clicked");
@@ -49,8 +73,6 @@ colorsEditon(name) {
       id:this.noteData.id,
       isArchive:true
     }
-
-
     console.log("dsd",this.data.id)
 
     this.httpService.putRequest('archiveNote/'+this.data.id,null).subscribe(
@@ -127,6 +149,16 @@ colorsEditon(name) {
         this.flag = ! this.flag;
       }
     );
+  }
+
+
+
+  DeleteNote()
+  {
+    this.httpService.deleteRequest('deleteNote/'+this.noteData.id)
+    .subscribe(response=>{
+      console.log(response)
+    })
   }
 
 }

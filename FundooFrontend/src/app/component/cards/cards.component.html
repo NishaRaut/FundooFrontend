@@ -1,7 +1,8 @@
  <div  fxLayout="row wrap" fxLayoutGap="20px" >
- <div  *ngFor="let item of data" [ngStyle]="{'background-color': item.color}">
+ <div  *ngFor="let item of data" >
 <div *ngIf="item.trash!=true">
-<mat-card class="smallcard">
+    <div *ngIf="item.archive!=true">
+<mat-card class="smallcard" [ngStyle]="{'background-color': item.color}">
   <div>{{item.title}}</div>
   <div>{{item.discription}}</div>
   <div>{{item.reminder}}</div>
@@ -9,6 +10,7 @@
       <app-icon [noteData]="item"></app-icon>
   
 </mat-card> 
+</div>
 </div>
 </div>
 </div> 

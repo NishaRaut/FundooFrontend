@@ -55,43 +55,48 @@
    <mat-sidenav-container fxFlexFill>
     <mat-sidenav #sidenav style="width: 280px;"  mode="side">
       <mat-nav-list>
-        <div>
-        <div (click)="notes()">
-            <i class="material-icons">
-                wb_incandescent
-                </i>
+        <div >
+        <button  mat-button  (click)="notes()"  >
+            
+            <mat-icon> wb_incandescent</mat-icon>
           Notes
-        </div>
-        <div (click)="reminder()">
+              </button>
+            </div>
+            <div>
+        <button  mat-button (click)="reminder()">
           <mat-icon>notifications</mat-icon>
           reminders 
-        </div>
+        </button>
         
       </div>
       <mat-divider></mat-divider>
       <div>
         <div>LABELS</div>
-        <a href="#" mat-list-item>
+        <button  mat-button>
           <mat-icon>label</mat-icon>
           office_work
-        </a>
-        <a href="#" mat-list-item>
-          <mat-icon>create</mat-icon>
-          create labels
-        </a>
+        </button>
       </div>
+      <div>
+    <button  mat-button>
+        <mat-icon>create</mat-icon>
+          create labels
+    </button>
+    </div>
       <mat-divider></mat-divider>
       <div >
-            <div (click)="archive()">
+            <button  mat-button (click)="archive()">
               <mat-icon>archive</mat-icon>
               archive 
-            </div>
-            <a href="#" mat-list-item>
-                <mat-icon>delete</mat-icon>
+            </button>
+          </div>
+          <div>
+            <button  mat-button>
+              <mat-icon>delete</mat-icon>
+        
               trash
-              </a>
-      </div>
-      
+            </button>
+          </div>
       </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content>

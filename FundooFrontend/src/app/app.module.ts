@@ -56,6 +56,7 @@ import { CardsComponent } from './component/cards/cards.component';
 import { ArchiveComponent } from './component/archive/archive.component';
 import { PinComponent } from './pin/pin.component';
 import { ReminderComponent } from './component/reminder/reminder.component';
+import { TrashComponent } from './component/trash/trash.component';
 
 
 
@@ -72,7 +73,8 @@ import { ReminderComponent } from './component/reminder/reminder.component';
      CardsComponent,
      ArchiveComponent,
      PinComponent,
-     ReminderComponent
+     ReminderComponent,
+     TrashComponent
 
 
 

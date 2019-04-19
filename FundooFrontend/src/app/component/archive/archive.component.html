@@ -1,5 +1,5 @@
 <div  fxLayout="row wrap" fxLayoutGap="20px" *ngFor="let note of data">
-    <div *ngIf="note.isArchive===true">
+    <div *ngIf="note.archive==true">
    
    <mat-card class="smallcard">
      <div>{{note.title}}</div>

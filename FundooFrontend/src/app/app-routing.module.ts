@@ -10,6 +10,7 @@ import { IconComponent } from './component/icon/icon.component';
 import { CardsComponent } from './component/cards/cards.component';
 import { ArchiveComponent } from './component/archive/archive.component';
 import { ReminderComponent } from './component/reminder/reminder.component';
+import { TrashComponent } from './component/trash/trash.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -26,6 +27,7 @@ const routes: Routes = [
     { path: 'archive', component: ArchiveComponent },
     { path: 'reminder', component: ReminderComponent },
     { path: 'card', component: CardsComponent },
+    { path: 'trash', component: TrashComponent },
   ]
 }
 ];
