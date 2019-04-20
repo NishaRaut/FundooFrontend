@@ -5,7 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RegisterComponent } from './component/register/register.component';
- import { MaterialModule } from 'src/app/material.module';
+import { MaterialModule } from 'src/app/material.module';
 import { ServiceService } from './services/service.service';
 import { LoginComponent } from 'src/app/component/login/login.component';
 import { ForgotComponent } from './component/forgot/forgot.component';
@@ -54,9 +54,10 @@ import { AddnoteComponent } from './component/addnote/addnote.component';
 import { IconComponent } from './component/icon/icon.component';
 import { CardsComponent } from './component/cards/cards.component';
 import { ArchiveComponent } from './component/archive/archive.component';
-import { PinComponent } from './pin/pin.component';
+
 import { ReminderComponent } from './component/reminder/reminder.component';
 import { TrashComponent } from './component/trash/trash.component';
+import { DialogComponent } from './dialog/dialog.component';
 
 
 
@@ -72,9 +73,10 @@ import { TrashComponent } from './component/trash/trash.component';
      IconComponent,
      CardsComponent,
      ArchiveComponent,
-     PinComponent,
+  
      ReminderComponent,
-     TrashComponent
+     TrashComponent,
+     DialogComponent
 
 
 
@@ -105,8 +107,7 @@ import { TrashComponent } from './component/trash/trash.component';
 
 
   ],
-  entryComponents: [
-
+  entryComponents: [DialogComponent
   ],
   providers: [
     ServiceService

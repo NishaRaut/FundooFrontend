@@ -43,7 +43,7 @@ export class RegisterComponent implements OnInit {
           this.matsnackbar.open(' register Successfully ', 'register', {
             duration: 2000,
           });
-        
+        this.router.navigate(['login'])
         } else {
           console.log(data);
           this.matsnackbar.open(data.statusMessage, 'ok',{

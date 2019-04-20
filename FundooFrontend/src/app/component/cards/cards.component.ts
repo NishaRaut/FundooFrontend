@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ServiceService } from 'src/app/services/service.service';
+import { MatDialog } from '@angular/material';
+import { DialogComponent } from 'src/app/dialog/dialog.component';
 
 @Component({
   selector: 'app-cards',
@@ -8,7 +10,7 @@ import { ServiceService } from 'src/app/services/service.service';
 })
 export class CardsComponent implements OnInit {
   data:any[];
-  constructor( private httpService:ServiceService) { }
+  constructor( private httpService:ServiceService,public dialog: MatDialog) { }
 
   ngOnInit() {
     console.log("getting",this.data);
@@ -28,7 +30,38 @@ export class CardsComponent implements OnInit {
         console.log('Error', error);
       }
       
+    
     )
+  }
+  openDialog(item): void {
+    const dialogRef = this.dialog.open(DialogComponent, {
+      width: '300px',
+      height:'200px',
+      // data: {name:'info'}
+    
+      data: {
+       // id: item.userid,
+        title: item.title,
+        discription:item.discription,
+        color:item.color,
+        noteId:item.id,
+        reminder:item.reminder,
+      //  label:item.label,
+      //  collabuser:data.collabuser
+       
+  
+        
+          
+  
+    }
+    });
+   
+
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+     
+    });
   }
   
 }
