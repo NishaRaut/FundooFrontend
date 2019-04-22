@@ -30,6 +30,9 @@ this.router.navigate(['login']);
   archive(){
     this.router.navigate(['dashboard','archive']);
   }
+  trash(){
+    this.router.navigate(['dashboard','trash']);
+  }
   reminder(){
     this.router.navigate(['dashboard','reminder']);
   }

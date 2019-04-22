@@ -50,7 +50,7 @@
     </mat-card>
   </mat-menu>
   
- <div class="cc" >
+ <div class="cc"  fxLayout="column" fxLayoutAlign="space-around center" >
  
    <mat-sidenav-container fxFlexFill>
     <mat-sidenav #sidenav style="width: 280px;"  mode="side">
@@ -91,7 +91,7 @@
             </button>
           </div>
           <div>
-            <button  mat-button>
+            <button  mat-button (click)="trash()">
               <mat-icon>delete</mat-icon>
         
               trash

@@ -1,13 +1,14 @@
-<div  fxLayout="row wrap" fxLayoutGap="20px" *ngFor="let note of data">
-    <div *ngIf="note.archive==true">
-   
-   <mat-card class="smallcard">
+<div fxLayout="row wrap">
+<div  *ngFor="let note of data" >
+    <div *ngIf="note.archive==true" fxFlexAlign="start center">
+  
+   <mat-card>
      <div>{{note.title}}</div>
-     <div>{{note.discription}}</div>
+     <div>{{note.discription}}</div>  
      <div>
          <app-icon></app-icon>
      </div>
    </mat-card> 
-   
+  </div>
    </div>
    </div> 

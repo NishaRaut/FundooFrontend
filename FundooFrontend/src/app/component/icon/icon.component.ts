@@ -11,6 +11,7 @@ export class IconComponent implements OnInit {
   data:any;
   card:any
   colors:any;
+ 
   constructor(private httpService:ServiceService) { }
   flag=false;
   ngOnInit() {
@@ -89,43 +90,49 @@ colorsEditon(name) {
     console.log(this.noteData);
     this.data={
       id:this.noteData.id,
-      isArchive:true
+     time:this.data
     }
 
 
     console.log("dsd",this.data.id)
 
-    this.httpService.putRequest('archiveNote/'+this.data.id,null).subscribe(
+    this.httpService.postRequest('notes/'+this.data.id,null).subscribe(
       response=>{
         console.log(response)
         this.flag = ! this.flag;
       }
     );
   }
+  // function for todays date.................
   today()
   {
     let curDate=new Date();
-    var val=curDate.toString;
-    console.log("date......",curDate);
-    console.log("trash clicked",this.noteData.id);
-    console.log("reminder is clicked");
-    console.log(this.noteData);
     this.data={
-      id:this.noteData.id,
-      reminder:val
+     reminder:curDate.toISOString()
     }
-
-
-    console.log("dsd",this.noteData.id)
-
-    this.httpService.postRequest('notes/'+this.noteData.id,null).subscribe(
+  
+    this.httpService.postRequest('notes/'+this.noteData.id+'?time='+this.data.reminder,null).subscribe(
       response=>{
-        console.log(response)
         this.flag = ! this.flag;
       }
     );
   }
-    
+
+  Tomorrow()
+{
+  let curDate=new Date();
+// tomorrow = (curDate .getDate()+1)  + "-" + (curDate .getMonth()+1) + "-" + curDate .getFullYear();
+   this.data={
+//    reminder:tomorrow_date.toISOString();
+
+  }
+
+  this.httpService.postRequest('notes/'+this.noteData.id+'?time='+this.data.reminder,null).subscribe(
+    response=>{
+      this.flag = ! this.flag;
+    }
+  );
+}
 
   movetotrash(id){
     console.log("movetotrash");
@@ -161,4 +168,7 @@ colorsEditon(name) {
     })
   }
 
-}
+  }
+
+
+  
