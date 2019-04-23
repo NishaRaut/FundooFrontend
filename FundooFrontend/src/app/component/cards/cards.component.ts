@@ -35,8 +35,9 @@ export class CardsComponent implements OnInit {
   }
   openDialog(item): void {
     const dialogRef = this.dialog.open(DialogComponent, {
-      width: '300px',
-      height:'200px',
+      width: '500px',
+      
+     height:'200px',
       // data: {name:'info'}
     
       data: {

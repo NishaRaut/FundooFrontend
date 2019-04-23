@@ -109,7 +109,10 @@ colorsEditon(name) {
     let curDate=new Date();
     this.data={
      reminder:curDate.toISOString()
+   
     }
+
+    console.log(this.data.reminder)
   
     this.httpService.postRequest('notes/'+this.noteData.id+'?time='+this.data.reminder,null).subscribe(
       response=>{
@@ -121,17 +124,31 @@ colorsEditon(name) {
   Tomorrow()
 {
   let curDate=new Date();
-// tomorrow = (curDate .getDate()+1)  + "-" + (curDate .getMonth()+1) + "-" + curDate .getFullYear();
+  var nextDay = new Date(curDate);
+  nextDay.setDate(curDate.getDate()+1);
    this.data={
-//    reminder:tomorrow_date.toISOString();
-
+    reminder:nextDay.toISOString()
+   
   }
+  console.log("3###########",this.data.reminder)
 
   this.httpService.postRequest('notes/'+this.noteData.id+'?time='+this.data.reminder,null).subscribe(
     response=>{
+      console.log("$$$$$$$$$$$$",this.noteData.id)
       this.flag = ! this.flag;
     }
   );
+}
+nextWeek()
+{
+  var day = new Date();
+
+var days = 7 - day.getDay() + 4;
+
+var nextDay = new Date(day.setDate(day.getDate() + days)); 
+
+
+console.log("88888888******************",nextDay.toString());
 }
 
   movetotrash(id){

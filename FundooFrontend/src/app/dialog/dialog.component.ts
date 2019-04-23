@@ -52,10 +52,12 @@ this.data1={
 }
 console.log(this.data1)
 
-    this.httpService.putRequest("/updateNote/"+this.ids,this.data1).subscribe(
+    this.httpService.putRequest("updateNote/"+this.ids,this.data1).subscribe(
       response=>{
-        console.log(response)
+        console.log("###################",response)
+       
     }
+
 
     )
 

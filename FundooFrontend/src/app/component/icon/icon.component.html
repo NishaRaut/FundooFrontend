@@ -1,7 +1,7 @@
  
 <div  fxLayout="row" >
     <button mat-icon-button>
-        <mat-icon matTooltip="Remind me"  mat-button [matMenuTriggerFor]="menu" (click)="reminder()">add_alert</mat-icon>
+        <img src="../../../assets/images/reminder.svg" matTooltip="Remind me"  mat-button [matMenuTriggerFor]="menu" (click)="reminder()">
         <mat-menu #menu="matMenu" xPosition="after" class="vert">
           <button mat-menu-item  style="margin-top: -9%">Reminder:</button>
 
@@ -19,7 +19,7 @@
       
      
         <button mat-icon-button matTooltip="Change color" [matMenuTriggerFor]="colorlist">
-          <mat-icon style="margin-left: 16px;">color_lens</mat-icon>
+          <img src="../../../assets/color.svg" style="margin-left: 16px;">
           </button>
           
           <mat-menu #colorlist="matMenu" [overlapTrigger]="false">
@@ -39,11 +39,11 @@
           </mat-menu>
 
         <button mat-icon-button>
-          <mat-icon matTooltip="Add image">insert_photo</mat-icon>
+          <img src="../../../assets/image.svg" matTooltip="Add image">
           </button>
     
        <button mat-icon-button>
-      <mat-icon matTooltip="archive" (click)="archive()">archive</mat-icon>
+      <img src="../../../assets/images/archive.svg" matTooltip="archive" (click)="archive()">
       </button>
 
     <button mat-icon-button>

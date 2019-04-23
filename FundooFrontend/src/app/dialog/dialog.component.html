@@ -1,16 +1,20 @@
-<div [ngStyle]="{'backgroundColor':color}">
+<div [ngStyle]="{'backgroundColor':color}" class="dialog">
   <!-- <div  *ngFor="let item of data" > -->
   <!-- <div *ngIf="item.trash!=true"> -->
   <!-- <div *ngIf="item.archive!=true"> -->
 
-  <div class="dialog" >
+  <!-- <div  > -->
     <!-- <div>{{data.title}}</div> -->
+    <div>
     <input type="text" [formControl]="title" [ngStyle]="{'backgroundColor':color}" style="border: none;">
-    <!-- <div>{{data.discription}}</div> -->
-    <input type="text" [formControl]="discription" [ngStyle]="{'backgroundColor':color}" style="border: none;">
-    <div>{{data.reminder}}</div>
-   <div>
-    <app-icon></app-icon>
-    <button mat-button (click)=  "updateNote(data)">Close</button>
   </div>
+    <!-- <div>{{data.discription}}</div> -->
+    <div>
+    <input type="text" [formControl]="discription" [ngStyle]="{'backgroundColor':color}" style="border: none;">
+  </div>
+    <div>{{data.reminder}}</div>
+   <div fxLayout="row" fxLayoutAlign="space-between end">
+    <app-icon></app-icon>
+    <button mat-button (click)="updateNote(data)">Close</button>
+  <!-- </div> -->
   </div>

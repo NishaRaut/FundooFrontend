@@ -50,52 +50,58 @@
     </mat-card>
   </mat-menu>
   
- <div class="cc"  fxLayout="column" fxLayoutAlign="space-around center" >
+ <div class="cc" >
+    <mat-divider></mat-divider>
  
-   <mat-sidenav-container fxFlexFill>
+   <mat-sidenav-container  >
     <mat-sidenav #sidenav style="width: 280px;"  mode="side">
       <mat-nav-list>
+        <div fxLayout="column" fxLayoutAlign="space-around start" fxLayoutGap="20px">
         <div >
         <button  mat-button  (click)="notes()"  >
-            
-            <mat-icon> wb_incandescent</mat-icon>
+            <img src="../../../assets/images/notes.svg">
+            <!-- <mat-icon> lightbulb-outline</mat-icon> -->
           Notes
               </button>
             </div>
             <div>
         <button  mat-button (click)="reminder()">
-          <mat-icon>notifications</mat-icon>
+          <img src="../../../assets/images/reminder.svg">
+          <!-- <mat-icon>notifications</mat-icon> -->
           reminders 
         </button>
-        
+        </div>
       </div>
       <mat-divider></mat-divider>
-      <div>
+      <div fxLayout="column" fxLayoutAlign="space-around start" fxLayoutGap="20px">
+   
         <div>LABELS</div>
-        <button  mat-button>
-          <mat-icon>label</mat-icon>
-          office_work
-        </button>
-      </div>
+      
       <div>
-    <button  mat-button>
-        <mat-icon>create</mat-icon>
+    <button  mat-button (click)="openDialog()">
+        <!-- <mat-icon>create</mat-icon> -->
+        <img src="../../../assets/images/editLabel.svg">
           create labels
     </button>
     </div>
+  </div>
       <mat-divider></mat-divider>
+      <div fxLayout="column" fxLayoutAlign="space-around start" fxLayoutGap="20px">
       <div >
             <button  mat-button (click)="archive()">
-              <mat-icon>archive</mat-icon>
+              <!-- <mat-icon>archive</mat-icon> -->
+              <img src="../../../assets/images/archive.svg">
               archive 
             </button>
           </div>
           <div>
             <button  mat-button (click)="trash()">
-              <mat-icon>delete</mat-icon>
+              <img src="../../../assets/images/trash.svg">
+              <!-- <mat-icon>delete</mat-icon> -->
         
               trash
             </button>
+          </div>
           </div>
       </mat-nav-list>
     </mat-sidenav>

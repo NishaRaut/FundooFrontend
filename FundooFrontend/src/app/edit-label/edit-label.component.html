@@ -1,0 +1,32 @@
+<div>
+    <h3 class="labels">Edit Labels</h3>
+    </div>
+    <div fxLayout="column" fxLayoutAlign="space-around start" >
+    <div class="input">
+    <button mat-icon-button>
+    <mat-icon class="labels">clear</mat-icon>
+    </button>
+    <input matInput class="labelinput" type="text" placeholder="Create new label" >
+    <button mat-icon-button (click)="create()">
+    <mat-icon class="labels">done</mat-icon>
+    </button>
+    </div>
+    <div *ngFor="let labels of data" fxLayout="row" fxLayoutAlign="column">
+    <div (mouseover)="changeText=true" (mouseout)="changeText=false">
+    <span *ngIf="!changeText">
+    <img src="../../assets/images/label.svg" class="labels" style="margin-left: 8px;">
+    </span>
+    <span *ngIf="changeText">
+    <mat-icon class="delete" (click)="delete(labels)">delete</mat-icon>
+    </span>
+    </div>
+    <span class="labels1">{{labels.name}}</span>
+    </div>
+    
+  <div>
+      <mat-divider></mat-divider>
+    <button mat-button [mat-dialog-close] class="size">
+    <span class="size">Done</span>
+    </button> 
+  </div>
+</div>

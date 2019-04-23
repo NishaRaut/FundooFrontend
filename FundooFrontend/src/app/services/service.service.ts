@@ -64,7 +64,10 @@ export class ServiceService {
       headers:new HttpHeaders().set("jwt_Token",localStorage.getItem("login")), 
     observe:'response'});
   }
-  
+  // updateNote(data) {
+  //   console.log("data on updateNOte", data);
+  //   return this.http.post(this.url+'updateNote' + '/', data)
+  //   }
   
 }
 
