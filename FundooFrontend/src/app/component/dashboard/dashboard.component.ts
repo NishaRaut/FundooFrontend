@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { EditLabelComponent } from 'src/app/edit-label/edit-label.component';
 import { MatDialog } from '@angular/material';
+import { ServiceService } from 'src/app/services/service.service';
 
 
 @Component({
@@ -11,12 +12,14 @@ import { MatDialog } from '@angular/material';
 })
 export class DashboardComponent implements OnInit {
   item:any[];
+  labels:any;
+  data:any[];
   constructor
-  (private router:Router,public dialog: MatDialog) { }
+  (private router:Router,public dialog: MatDialog,private httpService:ServiceService) { }
 
   ngOnInit() {
     console.log("nisha",this.item);
-    
+    this.getNotes();
   }
 
   logout()
@@ -47,6 +50,22 @@ this.router.navigate(['login']);
       console.log('The dialog was closed');
     });
   }
+
+getNotes()
+{
+
+  console.log("Hiiiiiiiii")
+  this.httpService.getRequest('allLabels').subscribe(
+    (response:any)=>{
+      this.data=response['body'];
+      console.log("info......",this.data)
+    },
+    error => {
+      console.log('Error', error);
+    }
+    
+  )
+}
 
 }
 

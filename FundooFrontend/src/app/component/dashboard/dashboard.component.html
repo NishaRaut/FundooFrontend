@@ -76,6 +76,10 @@
       <div fxLayout="column" fxLayoutAlign="space-around start" fxLayoutGap="20px">
    
         <div>LABELS</div>
+        <div *ngFor="let label of data">
+          <span class="labels1">{{label.name}}</span>
+        </div>
+     
       
       <div>
     <button  mat-button (click)="openDialog()">
