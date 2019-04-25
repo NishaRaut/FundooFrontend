@@ -15,6 +15,7 @@ export class IconComponent implements OnInit {
   constructor(private httpService:ServiceService) { }
   flag=false;
   ngOnInit() {
+   this.getNoteID()
   }
   @Output() countChange = new EventEmitter(); 
   
@@ -46,7 +47,10 @@ colorsEditon(name) {
   this.countChange.emit(name);
   }
 
-
+getNoteID()
+{
+  localStorage.setItem(this.noteData.id,"")
+}
 
 
   setColor(color)

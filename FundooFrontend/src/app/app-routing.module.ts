@@ -12,6 +12,7 @@ import { ArchiveComponent } from './component/archive/archive.component';
 import { ReminderComponent } from './component/reminder/reminder.component';
 import { TrashComponent } from './component/trash/trash.component';
 
+
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
@@ -28,6 +29,7 @@ const routes: Routes = [
     { path: 'reminder', component: ReminderComponent },
     { path: 'card', component: CardsComponent },
     { path: 'trash', component: TrashComponent },
+
   ]
 }
 ];

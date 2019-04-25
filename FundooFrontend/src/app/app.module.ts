@@ -59,6 +59,7 @@ import { ReminderComponent } from './component/reminder/reminder.component';
 import { TrashComponent } from './component/trash/trash.component';
 import { DialogComponent } from './dialog/dialog.component';
 import { EditLabelComponent } from './edit-label/edit-label.component';
+import { TrashiconComponent } from './component/trashicon/trashicon.component';
 
 
 
@@ -78,7 +79,8 @@ import { EditLabelComponent } from './edit-label/edit-label.component';
      ReminderComponent,
      TrashComponent,
      DialogComponent,
-     EditLabelComponent
+     EditLabelComponent,
+     TrashiconComponent
 
 
 

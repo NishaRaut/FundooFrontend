@@ -11,7 +11,7 @@ export class EditLabelComponent implements OnInit {
   
   constructor(private httpService:ServiceService,
   public dialogRef: MatDialogRef<EditLabelComponent>,
-  @Inject(MAT_DIALOG_DATA) public data: any) 
+   @Inject(MAT_DIALOG_DATA) public data: any) 
   {
 
   }
