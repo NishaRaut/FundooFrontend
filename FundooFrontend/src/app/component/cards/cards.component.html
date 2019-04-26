@@ -5,7 +5,11 @@
 <mat-card class="smallcard" [ngStyle]="{'background-color': item.color}" >
 <div (click)="openDialog(item)">{{item.title}}</div>
   <div>{{item.discription}}</div>
-  <div>{{item.reminder| date:'mediumDate'}}</div>
+  <div>
+      <mat-chip-list>
+        <mat-chip>{{item.reminder| date:'mediumDate'}}</mat-chip>
+        </mat-chip-list>
+      </div>
   
  <app-icon [noteData]="item"></app-icon>
   

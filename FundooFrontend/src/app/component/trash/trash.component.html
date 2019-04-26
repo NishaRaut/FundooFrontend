@@ -1,17 +1,18 @@
 
-<div  fxLayout="row wrap" fxLayoutGap="50px" style="margin:10px" >
+<div  fxLayout="row wrap" fxLayoutGap="50px" style="margin:10px;" >
   <div  *ngFor="let item of data" fxLayout="row wrap">
- <div *ngIf="item.trash==true">
- <mat-card class="smallcard" [ngStyle]="{'background-color': item.color}">
+ <div *ngIf="item.trash===true">
+ <mat-card class="smallcard" [ngStyle]="{'background-color': item.color}" (click)="getId(item)">
    <div>{{item.title}}</div>
    <div>{{item.discription}}</div>
    <div>{{item.reminder}}</div>
-   
+   <div>{{item.id}}</div>
        <!-- <app-icon [noteData]="item"></app-icon> -->
-   <app-trashicon></app-trashicon>
+   <app-trashicon [card]="item"></app-trashicon>
  </mat-card> 
  </div>
  </div>
- </div> 
+ </div>
+
 
   

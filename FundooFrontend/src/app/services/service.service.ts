@@ -51,6 +51,13 @@ export class ServiceService {
   }
 
 
+  getRequestNote(url,archive:boolean,trash:boolean): any {
+    return this.http.get(this.url+url+'?archived='+archive +'&trashed='+trash,{
+      headers:new HttpHeaders().set("jwt_Token",localStorage.getItem("login")), 
+    observe:'response'});
+  }
+
+
   putRequest(url,noteDto:NoteDTO): any {
     return this.http.put(this.url+url,noteDto,{
       headers:new HttpHeaders().set("jwt_Token",localStorage.getItem("login")), 

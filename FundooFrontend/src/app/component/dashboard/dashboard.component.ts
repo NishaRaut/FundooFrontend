@@ -11,14 +11,14 @@ import { ServiceService } from 'src/app/services/service.service';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-  item:any[];
+ // item:any[];
   labels:any;
   data:any[];
   constructor
   (private router:Router,public dialog: MatDialog,private httpService:ServiceService) { }
 
   ngOnInit() {
-    console.log("nisha",this.item);
+   // console.log("nisha",this.item);
     this.getNotes();
   }
 

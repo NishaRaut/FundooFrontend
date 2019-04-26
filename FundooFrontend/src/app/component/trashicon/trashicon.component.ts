@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ServiceService } from 'src/app/services/service.service';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-trashicon',
@@ -7,15 +8,22 @@ import { ServiceService } from 'src/app/services/service.service';
   styleUrls: ['./trashicon.component.scss']
 })
 export class TrashiconComponent implements OnInit {
-
-  @Input() noteData:any;
-
+@Input() card:any;
+  noteData:any
   //data:any[];
-  constructor(private httpService:ServiceService) { }
+  constructor(private httpService:ServiceService,private dataService:DataService) { }
   id:any;
   ngOnInit() {
 
+console.log("Card id in Trash"+this.card.id);
   }
+
+
+getId()
+{
+
+}
+
   DeleteNote()
   {
 
@@ -23,10 +31,12 @@ export class TrashiconComponent implements OnInit {
    //console.log("iddd",this.data)
 
 
-    console.log("id",this.noteData.id)
-    this.httpService.deleteRequest('deleteNote/'+this.noteData.id)
+   //console.log("id",this.noteData.id)
+    this.httpService.deleteRequest('deleteNote/'+this.card.id)
     .subscribe(response=>{
       console.log(response)
+      this.dataService.updateMessage();
     })
+
   }
 }

@@ -60,6 +60,7 @@ import { TrashComponent } from './component/trash/trash.component';
 import { DialogComponent } from './dialog/dialog.component';
 import { EditLabelComponent } from './edit-label/edit-label.component';
 import { TrashiconComponent } from './component/trashicon/trashicon.component';
+import { DataService } from './services/data.service';
 
 
 
@@ -114,7 +115,8 @@ import { TrashiconComponent } from './component/trashicon/trashicon.component';
   entryComponents: [DialogComponent,EditLabelComponent
   ],
   providers: [
-    ServiceService
+    ServiceService,
+    DataService
   ],
   bootstrap: [AppComponent]
 })

@@ -1,5 +1,5 @@
 <div  fxLayout="row" fxLayoutAlign="center center">
-  <mat-card class="card"  *ngIf="flag==false"  (click)=" showNote()">
+  <mat-card class="card"  *ngIf="flag==false"  (click)="showNote()">
       <input class="input" matInput placeholder="Take a note..."  >
       
   <button mat-icon-button style="margin-left: 80px;">
@@ -18,7 +18,7 @@
 
 
 <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px" >
-    <mat-card class="secondcard"  *ngIf="flag==true" >
+    <mat-card class="secondcard"  *ngIf="flag==true">
       <div>
     <input class="title" placeholder="Title..." [formControl]="title">
     </div> 
@@ -28,9 +28,9 @@
      
      </div>
      <mat-card-footer>
-    <div fxLayout="row">
+    <div fxLayout="row" fxLayoutAlign="space-between end">
      <app-icon></app-icon>
-     <button mat-button (click)=" createNote()">close</button>
+     <button mat-button (click)="createNote()">close</button>
      <!-- <button (click)=" createNote()">close</button> -->
     </div>
     </mat-card-footer>

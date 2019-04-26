@@ -15,7 +15,7 @@ export class IconComponent implements OnInit {
   constructor(private httpService:ServiceService) { }
   flag=false;
   ngOnInit() {
-   this.getNoteID()
+  //  this.getNoteID()
   }
   @Output() countChange = new EventEmitter(); 
   
@@ -49,7 +49,9 @@ colorsEditon(name) {
 
 getNoteID()
 {
-  localStorage.setItem(this.noteData.id,"")
+  console.log("xvgxcv",this.noteData.id);
+  
+  localStorage.setItem("id",this.noteData.id)
 }
 
 
@@ -150,9 +152,18 @@ nextWeek()
 var days = 7 - day.getDay() + 4;
 
 var nextDay = new Date(day.setDate(day.getDate() + days)); 
-
+this.data={
+  reminder:nextDay.toISOString()
+ 
+}
 
 console.log("88888888******************",nextDay.toString());
+this.httpService.postRequest('notes/'+this.noteData.id+'?time='+this.data.reminder,null).subscribe(
+  response=>{
+    console.log("$$$$$$$$$$$$",this.noteData.id)
+    this.flag = ! this.flag;
+  }
+);
 }
 
   movetotrash(id){
