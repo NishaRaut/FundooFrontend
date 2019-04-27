@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ServiceService } from 'src/app/services/service.service';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-icon',
@@ -12,7 +13,7 @@ export class IconComponent implements OnInit {
   card:any
   colors:any;
  
-  constructor(private httpService:ServiceService) { }
+  constructor(private httpService:ServiceService, private dataService :DataService) { }
   flag=false;
   ngOnInit() {
   //  this.getNoteID()
@@ -71,7 +72,10 @@ getNoteID()
 
 
 
-
+  moveToaArchive(id)
+{
+  console.log("movetoArchive");
+}
 
   archive(){
     console.log("archive is clicked");
@@ -85,6 +89,7 @@ getNoteID()
     this.httpService.putRequest('archiveNote/'+this.data.id,null).subscribe(
       response=>{
         console.log(response)
+        this.dataService.changemessage(true,false);
         this.flag = ! this.flag;
       }
     );
@@ -141,6 +146,7 @@ getNoteID()
   this.httpService.postRequest('notes/'+this.noteData.id+'?time='+this.data.reminder,null).subscribe(
     response=>{
       console.log("$$$$$$$$$$$$",this.noteData.id)
+      this.dataService.updateMessage();
       this.flag = ! this.flag;
     }
   );
@@ -185,8 +191,11 @@ this.httpService.postRequest('notes/'+this.noteData.id+'?time='+this.data.remind
     this.httpService.putRequest('trashNote/'+this.noteData.id,null).subscribe(
       response=>{
         console.log(response)
+        this.dataService.updateMessage()
         this.flag = ! this.flag;
+      //  this.dataService.changemessage(false,false)
       }
+     
     );
   }
 
@@ -197,6 +206,7 @@ this.httpService.postRequest('notes/'+this.noteData.id+'?time='+this.data.remind
     this.httpService.deleteRequest('deleteNote/'+this.noteData.id)
     .subscribe(response=>{
       console.log(response)
+      this.dataService.changemessage(false,false)
     })
   }
 

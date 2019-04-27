@@ -16,7 +16,9 @@ export class CardsComponent implements OnInit {
   trashed:boolean=false
   message:any;
   constructor( private httpService:ServiceService,public dialog: MatDialog,
-    private dataService:DataService) { }
+    private dataService:DataService) {
+     
+     }
 
   ngOnInit() {
     this.getNotes();

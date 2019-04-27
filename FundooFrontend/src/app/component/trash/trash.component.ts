@@ -8,56 +8,64 @@ import { DataService } from 'src/app/services/data.service';
   styleUrls: ['./trash.component.scss']
 })
 export class TrashComponent implements OnInit {
-  @Input() noteData:any;
+ // @Input() noteData:any;
   data:any[];
-  archived: boolean=false;
-  trashed: boolean=true;
- @Input() noteID:any;
-  constructor( private dataService:DataService,private httpService:ServiceService) { }
+ //@Input() noteID:any;
+  constructor( private dataService:DataService,private httpService:ServiceService) {
+    this.dataService.changemessage(false,true);
+   }
 id:any;
   ngOnInit() {
-    console.log("getting",this.data);
-    
-    this.getNotes();
-
-  }
-
-getId(item)
-{
-this.noteID  =item.id;
-console.log(this.noteID)
-}
-  // getNotes()
-  // {
-  //   this.httpService.getRequest('allNotes').subscribe(
-  //     response=>{
-  //       this.data=response['body']
-  //       console.log("info",this.data)
-  //     },
-  //     error => {
-  //       console.log('Error', error);
-  //     }
-      
-  //   )
-  // }
-
-  getNotes()
-  {
-    this.httpService.getRequestNote('allNotes',this.archived,this.trashed).subscribe(
-      (response:any)=>{
-        this.data=response.body
-        console.log("info",response.body)
-      
-      },
-      error => {
-        console.log('Error', error);
+    this.dataService.currentMessage.subscribe(
+      response=>{
+        this.data=response['body']
+        console.log("trash note",this.data)
       }
-      
     
     )
+    
   }
 
-  
-  
+
+
+
+
+
+
+
+  getId(item)
+{
+  this.id=item.id
 }
+
+  DeleteNote()
+  {
+    this.httpService.deleteRequest('deleteNote/'+this.id)
+    .subscribe(response=>{
+      console.log(response)
+      this.dataService.changemessage(false,true);
+    })
+
+  }
+
+
+
+  restorNote(){
+    console.log("trash clicked",this.id);
+    console.log("reminder is clicked");
+   
+
+    console.log("dsd",this.id)
+
+    this.httpService.putRequest('trashNote/'+this.id,null).subscribe(
+      response=>{
+        console.log(response)
+        this.dataService.changemessage(false,true);
+      }
+     
+    );
+  }
+}
+
+
 

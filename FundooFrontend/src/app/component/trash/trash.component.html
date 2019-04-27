@@ -2,13 +2,25 @@
 <div  fxLayout="row wrap" fxLayoutGap="50px" style="margin:10px;" >
   <div  *ngFor="let item of data" fxLayout="row wrap">
  <div *ngIf="item.trash===true">
- <mat-card class="smallcard" [ngStyle]="{'background-color': item.color}" (click)="getId(item)">
+ <mat-card class="smallcard" [ngStyle]="{'background-color': item.color}">
    <div>{{item.title}}</div>
    <div>{{item.discription}}</div>
    <div>{{item.reminder}}</div>
-   <div>{{item.id}}</div>
        <!-- <app-icon [noteData]="item"></app-icon> -->
-   <app-trashicon [card]="item"></app-trashicon>
+       <button mat-icon-button>
+        <mat-icon matTooltip="more"  mat-button [matMenuTriggerFor]="menu2">more_vert</mat-icon>
+      
+       
+        <mat-menu #menu2="matMenu" xPosition="after" class="remind">
+       
+         <button mat-menu-item  style="margin-top: -9%"  (click)="getId(item)" (click)= "DeleteNote()">Delete forever</button>
+         <button mat-menu-item  style="margin-top: -9%"  (click)="getId(item)" (click)= "restorNote()">Restore</button>
+      
+        
+       </mat-menu>
+      
+      
+      </button>
  </mat-card> 
  </div>
  </div>

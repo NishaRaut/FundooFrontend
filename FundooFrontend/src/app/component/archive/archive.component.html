@@ -1,17 +1,15 @@
-<div fxLayout="row wrap" fxLayoutGap="50px" style="margin:10px">
-<div  *ngFor="let note of noteData"  fxLayout="row wrap">
-<div *ngIf="note.archive==true" fxFlexAlign="start center">
-  
-   <mat-card class="smallcard" [ngStyle]="{'background-color': item.color}">
-     <div>{{note.title}}</div>
-     <div>{{note.discription}}</div>  
-     <div>{{item.reminder}}</div>
+ <div  fxLayout="row wrap" fxLayoutGap="50px" style="margin:10px;" >
+  <div  *ngFor="let item of data" fxLayout="row wrap">
+ <div *ngIf="item.archive===true">
+ <mat-card class="smallcard" [ngStyle]="{'background-color': item.color}">
+   <div>{{item.title}}</div>
+   <div>{{item.discription}}</div>
+   <div>{{item.reminder}}</div>
      <div>
-         <app-icon></app-icon>
+         <app-icon [noteData]="item"></app-icon>
      </div>
    </mat-card> 
   </div>
    </div>
-   </div> 
-
+   </div>  
 

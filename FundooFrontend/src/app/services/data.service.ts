@@ -34,6 +34,23 @@ updateMessage()
     
 }
 
+changemessage(archive: boolean, trash: boolean ){
+
+  this.httpService.getRequestNote('allNotes',archive, trash).subscribe(
+    response => {
+
+      console.log("change message",response);
+
+
+      
+          this.messageSource.next(response);
+    },
+    error => {
+      console.log(error);
+    }
+    );
+  }
+
 
 
 }

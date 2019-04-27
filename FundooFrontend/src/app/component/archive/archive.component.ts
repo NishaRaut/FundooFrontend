@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ServiceService } from 'src/app/services/service.service';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-archive',
@@ -7,32 +8,27 @@ import { ServiceService } from 'src/app/services/service.service';
   styleUrls: ['./archive.component.scss']
 })
 export class ArchiveComponent implements OnInit {
-  @Input() noteData:any;
+  // @Input() noteData:any;
   data:any[];
-  constructor( private httpService:ServiceService) { }
+ //@Input() noteID:any;
+  constructor( private dataService:DataService,private httpService:ServiceService) {
+    this.dataService.changemessage(true,false);
+   }
 id:any;
   ngOnInit() {
-    console.log("getting",this.data);
-    
-    this.getNotes();
-  }
-
-
-  getNotes()
-  {
-    this.httpService.getRequest('allNotes').subscribe(
+    this.dataService.currentMessage.subscribe(
       response=>{
         this.data=response['body']
-        console.log("info",this.data)
-      },
-      error => {
-        console.log('Error', error);
+        console.log("archive note",this.data)
       }
-      
+    
     )
+    
   }
 
+  getId(item)
+{
+  this.id=item.id
+}
 
-
-  
 }
