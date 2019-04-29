@@ -17,7 +17,7 @@ export class ArchiveComponent implements OnInit {
 id:any;
   ngOnInit() {
     this.dataService.currentMessage.subscribe(
-      response=>{
+      (response:any)=>{
         this.data=response['body']
         console.log("archive note",this.data)
       }

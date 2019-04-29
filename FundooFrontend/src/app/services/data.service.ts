@@ -2,12 +2,22 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { ServiceService } from './service.service';
 
-@Injectable()
+@Injectable({
+  providedIn:'root'
+})
 export class DataService {
 
   private messageSource = new BehaviorSubject([]);
  
   currentMessage = this.messageSource.asObservable();
+
+
+  private messageSourceGrid = new BehaviorSubject('row wrap');
+ 
+  currentMessageGrid = this.messageSourceGrid.asObservable();
+
+
+
 
   archived:boolean=false;
   trashed:boolean=false;
@@ -22,7 +32,7 @@ export class DataService {
     )
     
    }
-
+   
 
 updateMessage()
 {
@@ -51,6 +61,9 @@ changemessage(archive: boolean, trash: boolean ){
     );
   }
 
-
-
+viewChangeMsg(message: string)
+{
+  console.log(message)
+this.messageSourceGrid.next(message)  
+}
 }

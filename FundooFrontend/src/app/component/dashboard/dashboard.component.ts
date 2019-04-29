@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { EditLabelComponent } from 'src/app/edit-label/edit-label.component';
 import { MatDialog } from '@angular/material';
 import { ServiceService } from 'src/app/services/service.service';
+import { DataService } from 'src/app/services/data.service';
 
 
 @Component({
@@ -14,8 +15,10 @@ export class DashboardComponent implements OnInit {
  // item:any[];
   labels:any;
   data:any[];
+  icon:any="view_stream"
   constructor
-  (private router:Router,public dialog: MatDialog,private httpService:ServiceService) { }
+  (private router:Router,public dialog: MatDialog,private httpService:ServiceService,
+    private dataService:DataService) { }
 
   ngOnInit() {
    // console.log("nisha",this.item);
@@ -49,6 +52,18 @@ this.router.navigate(['login']);
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
     });
+  }
+
+
+
+setGridAndListView(){
+  if(this.icon ==='view_stream'){
+  this.icon='dashboard';
+  this.dataService.viewChangeMsg('column wrap')
+  }else{
+  this.icon ="view_stream";
+  this.dataService.viewChangeMsg('row wrap')
+  }
   }
 
 getNotes()

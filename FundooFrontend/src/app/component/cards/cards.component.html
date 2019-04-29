@@ -1,5 +1,5 @@
-<div  fxLayout="row wrap" fxLayoutGap="20px" >
-<div  *ngFor="let item of data" >
+<div fxLayout="{{message}}" fxLayoutGap="20px" >
+<div *ngFor="let item of data" >
 <div *ngIf="item.trash!=true">
 <div *ngIf="item.archive!=true">
 <mat-card class="smallcard" [ngStyle]="{'background-color': item.color}" >

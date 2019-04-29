@@ -28,8 +28,8 @@
           </form>
       </div>
 
-      <div fxLayout="row" fxLayoutAlign="end center" fxLayoutAlign.xs="space-evenly center" fxFlex="20" fxLayoutGap="10px">
-        <mat-icon fxFlex="10">view_stream</mat-icon>
+      <div fxLayout="row" fxLayoutAlign="end center" fxLayoutAlign.xs="space-evenly center" fxFlex="20" fxLayoutGap="10px" >
+        <mat-icon fxFlex="10" (click)="setGridAndListView()">{{icon}}</mat-icon>
           
        
         <button  mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">

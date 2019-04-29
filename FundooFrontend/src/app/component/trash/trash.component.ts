@@ -8,7 +8,7 @@ import { DataService } from 'src/app/services/data.service';
   styleUrls: ['./trash.component.scss']
 })
 export class TrashComponent implements OnInit {
- // @Input() noteData:any;
+ @Input() noteData:any;
   data:any[];
  //@Input() noteID:any;
   constructor( private dataService:DataService,private httpService:ServiceService) {
@@ -17,7 +17,7 @@ export class TrashComponent implements OnInit {
 id:any;
   ngOnInit() {
     this.dataService.currentMessage.subscribe(
-      response=>{
+      (response:any)=>{
         this.data=response['body']
         console.log("trash note",this.data)
       }

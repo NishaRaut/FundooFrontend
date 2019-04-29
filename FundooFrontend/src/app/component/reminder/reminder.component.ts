@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ServiceService } from 'src/app/services/service.service';
+import { DataService } from 'src/app/services/data.service';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-reminder',
@@ -7,26 +9,66 @@ import { ServiceService } from 'src/app/services/service.service';
   styleUrls: ['./reminder.component.scss']
 })
 export class ReminderComponent implements OnInit {
-  @Input() noteData:any;
+  
   data:any[];
-  constructor(private httpService:ServiceService) { }
-
+  reminders:any
+ // alldata: any[];
+  constructor(private httpService:ServiceService, private dataService:DataService,
+    private matsnackbar: MatSnackBar) { 
+    this.dataService.changemessage(true,false)
+  }
+  id:any;
   ngOnInit() {
-    console.log("getting",this.data);
-    
-    this.getNotes();
-  }
-  getNotes() {
-    this.httpService.getRequest('allNotes').subscribe(
-      response=>{
-        this.data=response['body']
-        console.log("info",this.data)
-      },
-      error => {
-        console.log('Error', error);
-      }
-      
-    )
-  }
+    // this.dataService.currentMessage.subscribe(
+    //   (response:any)=>{
+    //     this.data=response['body']
+    //     console.log(this.data)
+    //     this.reminders=this.data.filter(item=> item.reminder)
+    //     console.log("reminder",this.reminders)
 
-}
+    //   }
+    // )
+    this.getNotes();
+      }
+
+
+      getNotes() {
+        this.httpService.getRequestNote('allNotes',false,false).subscribe(
+          response=>{
+            this.data=response['body']
+            this.reminders=this.data.filter(item=> item.reminder)
+            console.log("info",this.data)
+            console.log("reminder",this.reminders)
+
+          },
+          error => {
+            console.log('Error', error);
+          }
+          
+        )
+      }
+    }
+       // this.alldata=this.data.filter(item => item.reminder);
+       // console.log("e note",this.data)
+      //  if(response.statuscode===1){
+      //   this.matsnackbar.open(response.body.statusMessage +' !!', 'End now', {
+      //   duration: 1000,
+      //   });
+        
+      //   }
+      //   },
+      //   (error) => {console.log("error",error);}
+      //   );
+      //   }
+      // }
+    
+
+
+//   getId(item)
+// {
+//   this.id=item.id
+// }
+//   }
+
+
+//}

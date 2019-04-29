@@ -1,15 +1,16 @@
 
-<div  fxLayout="row wrap" fxLayoutGap="20px" >
-    <div  *ngFor="let item of data" >
-   <div *ngIf="item.reminder==true">
-   <mat-card class="smallcard" [ngStyle]="{'background-color': item.color}">
-     <div>{{item.title}}</div>
-     <div>{{item.discription}}</div>
-     <div>{{item.reminder}}</div>
-     
+ <div  fxLayout="row wrap" fxLayoutGap="50px" style="margin:10px;" >
+  <div  *ngFor="let item of data" fxLayout="row wrap">
+ <!-- <div *ngIf="item.reminder != 'none'"> -->
+ <mat-card class="smallcard" [ngStyle]="{'background-color': item.color}">
+   <div>{{item.title}}</div>
+   <div>{{item.discription}}</div>
+   <div>{{item.reminder | date:'mediumDate'}}</div>
+     <div>
          <app-icon [noteData]="item"></app-icon>
-     
+     </div>
    </mat-card> 
+  <!-- </div> -->
    </div>
-   </div>
-   </div> 
+   </div>  
+

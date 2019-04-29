@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ServiceService } from '../services/service.service';
 import { Inject} from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import { DataService } from '../services/data.service';
 @Component({
   selector: 'app-edit-label',
   templateUrl: './edit-label.component.html',
@@ -9,7 +10,7 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 })
 export class EditLabelComponent implements OnInit {
   
-  constructor(private httpService:ServiceService,
+  constructor(private httpService:ServiceService, private dataService:DataService,
   public dialogRef: MatDialogRef<EditLabelComponent>,
    @Inject(MAT_DIALOG_DATA) public data: any) 
   {
@@ -39,4 +40,16 @@ getNotes()
     
   )
 }
+create()
+{
+  this.httpService.postRequest('createLabel',null).subscribe(
+    response=>{
+
+      console.log(response)
+        this.dataService.updateMessage();
+    }
+  );
+
+  }
 }
+

@@ -15,6 +15,7 @@ export class CardsComponent implements OnInit {
   archived:boolean=false
   trashed:boolean=false
   message:any;
+
   constructor( private httpService:ServiceService,public dialog: MatDialog,
     private dataService:DataService) {
      
@@ -22,11 +23,26 @@ export class CardsComponent implements OnInit {
 
   ngOnInit() {
     this.getNotes();
+   this. gridView();
+  }
+
+
+  gridView()
+  {
+    this.dataService.currentMessageGrid.subscribe(
+     response=>{
+       console.log("hiiii")
+       console.log("list...",response)
+       this.message=response;
+       console.log("list...",this.message)
+     }
+    );
   }
 
 getNotes(){
   this.dataService.currentMessage.subscribe(
-    response=>this.data=response
+  
+    (response:any)=>this.data=response
   );
 }
   // getNotes()
