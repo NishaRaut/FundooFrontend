@@ -71,7 +71,7 @@ getNotes(){
        // id: item.userid,
         title: item.title,
         discription:item.discription,
-        //color:item.color,
+        color:item.color,
         noteId:item.id,
         reminder:item.reminder,
       //  label:item.label,

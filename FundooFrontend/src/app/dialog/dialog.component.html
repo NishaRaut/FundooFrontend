@@ -1,20 +1,22 @@
-<div [ngStyle]="{'backgroundColor':color}" class="dialog">
-  <!-- <div  *ngFor="let item of data" > -->
+<div fxLayout="column" fxLayoutAlign="space-around start" [ngStyle]="{'backgroundColor':color}" class="dialog">
+   <div  > 
+
   <!-- <div *ngIf="item.trash!=true"> -->
   <!-- <div *ngIf="item.archive!=true"> -->
 
   <!-- <div  > -->
     <!-- <div>{{data.title}}</div> -->
-    <div>
-    <input type="text" [formControl]="title" [ngStyle]="{'backgroundColor':color}" style="border: none;">
+    <div style="height:50px;width:150px;">
+    <input class="input1" type="text" [formControl]="title" [ngStyle]="{'backgroundColor':color}" style="border: none;">
   </div>
     <!-- <div>{{data.discription}}</div> -->
-    <div>
-    <input type="text" [formControl]="discription" [ngStyle]="{'backgroundColor':color}" style="border: none;">
+    <div style="height:50px; width:150px;">
+    <input class="input1" type="text" [formControl]="discription" [ngStyle]="{'backgroundColor':color}" style="border: none;">
   </div>
     <div>{{data.reminder}}</div>
-   <div fxLayout="row" fxLayoutAlign="space-between end">
-    <app-icon></app-icon>
+   <div fxLayout="row" fxLayoutAlign="space-between end" style="height:50px;width: 500px;">
+    <app-icon [noteData]="item"></app-icon>
     <button mat-button (click)="updateNote(data)">Close</button>
-  <!-- </div> -->
+   </div> 
   </div>
+</div>
