@@ -19,12 +19,12 @@
 
 <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px" >
     <mat-card class="secondcard"  *ngIf="flag==true">
-      <div>
-    <input class="title" placeholder="Title..." [formControl]="title">
+      <div >
+    <input class="title" type="text" placeholder="Title..." [formControl]="title">
     </div> 
   
     <div  style="margin-top: 13px;" >
-     <input  class="title" placeholder="Take a note..." [formControl]="description">
+     <input  class="title" type="text" placeholder="Take a note..." [formControl]="description">
      
      </div>
      <mat-card-footer>

@@ -23,7 +23,7 @@ data1:any
     console.log("data from EDIT component",this.data);
     
     this.getNotes();
-    console.log(this.color)
+   // console.log(this.color)
   
   }
   

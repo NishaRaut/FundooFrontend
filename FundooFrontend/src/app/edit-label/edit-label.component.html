@@ -6,7 +6,7 @@
     <button mat-icon-button>
     <mat-icon class="labels">clear</mat-icon>
     </button>
-    <input matInput class="labelinput" type="text" placeholder="Create new label" >
+    <input matInput class="labelinput" type="text" placeholder="Create new label" [formControl]="labelName" >
     <button mat-icon-button (click)="create()">
     <mat-icon class="labels">done</mat-icon>
     </button>

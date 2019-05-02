@@ -3,9 +3,11 @@
 <div *ngIf="item.trash!=true">
 <div *ngIf="item.archive!=true">
 <mat-card class="smallcard" [ngStyle]="{'background-color': item.color}" >
-<div (click)="openDialog(item)">{{item.title}}</div>
-  <div>{{item.discription}}</div>
-  <div>
+<div (click)="openDialog(item)" style=" word-wrap: break-word;">{{item.title}}</div>
+  <div style=" word-wrap: break-word;">{{item.discription}}</div>
+
+  
+  <div *ngIf="item.reminder!=null">
       <mat-chip-list>
         <mat-chip>{{item.reminder| date:'mediumDate'}}</mat-chip>
         </mat-chip-list>

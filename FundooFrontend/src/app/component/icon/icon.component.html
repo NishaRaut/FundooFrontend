@@ -17,6 +17,9 @@
          </mat-menu>
         </button>
       
+        <button mat-icon-button>
+          <img src="../../../assets/collabrator.svg" matTooltip="colaborator">
+          </button>
      
         <button mat-icon-button matTooltip="Change color" [matMenuTriggerFor]="colorlist">
           <img src="../../../assets/color.svg" style="margin-left: 16px;">
@@ -24,7 +27,7 @@
           
           <mat-menu #colorlist="matMenu" [overlapTrigger]="false">
           <ng-template matMenuContent>
-          <div class="buttons">
+          <div >
           <div fxLayout="row" fxLayoutGap="10px" style="margin-top: 3px" *ngFor="let colors of arrayOfColors">
           <div *ngFor="let color of colors">
           <button class="colors" [ngStyle]="{ 'background-color': color.color }"
@@ -43,7 +46,7 @@
           </button>
     
        <button mat-icon-button>
-      <img src="../../../assets/images/archive.svg" matTooltip="archive" (click)="archive()">
+      <img src="../../../assets/images/archive.svg" matTooltip="archive" (click)="moveToaArchive(id)">
       </button>
 
     <button mat-icon-button>

@@ -207,6 +207,7 @@ this.httpService.postRequest('notes/'+this.noteData.id+'?time='+this.data.remind
     .subscribe(response=>{
       console.log(response)
       this.dataService.changemessage(false,false)
+      this.dataService.updateMessage()
     })
   }
 
