@@ -2,13 +2,13 @@
 <div  fxLayout="row" fxLayoutAlign="center center" >
    <mat-card style="background:#e0ebe8c2;margin-top: 150px; width: 40%;">
     
-       
+       <div fxLayout="row" fxLayoutAlign="center start" class="loghead">Fundoo login</div>
         <div >
          <mat-form-field appearance="outline" style="width: 100%;">
            <mat-label>Email</mat-label>
            <input  matInput placeholder="Email" name="email" type="email" [formControl]="email" required>
            <mat-icon matSuffix>email</mat-icon>
-           <mat-error *ngIf="email.invalid">Email is required</mat-error>
+           <mat-error *ngIf="email.invalid">Valid Email is required</mat-error>
           </mat-form-field>
          </div>
        
@@ -26,7 +26,7 @@
          <button mat-raised-button color="primary" (click)="submit()">login</button>
         
          <button mat-raised-button color="primary" (click)="register()">register</button>
-         <button mat-button class="name-link" routerLink="/forgot">Forgot Password ?</button>
+         <button mat-button color="primary" routerLink="/forgot">Forgot Password ?</button>
        </div>
 
    </mat-card>

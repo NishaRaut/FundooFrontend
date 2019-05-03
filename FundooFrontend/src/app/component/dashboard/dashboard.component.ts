@@ -34,6 +34,8 @@ this.router.navigate(['login']);
   }
   notes(){
     this.router.navigate(['dashboard','addnote']);
+    this.dataService.changeMsg('update');
+
   }
   archive(){
     this.router.navigate(['dashboard','archive']);

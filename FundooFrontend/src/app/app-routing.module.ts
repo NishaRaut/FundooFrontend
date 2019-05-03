@@ -17,6 +17,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'forgot', component: ForgotComponent },
+  { path: 'reset', component: ResetComponent },
   { path: 'icon', component: IconComponent },
   { path: '', component: LoginComponent },
   // { path: 'notes', component: CardsComponent },

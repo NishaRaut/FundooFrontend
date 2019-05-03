@@ -4,7 +4,7 @@
  <mat-card class="smallcard" [ngStyle]="{'background-color': item.color}">
    <div>{{item.title}}</div>
    <div>{{item.discription}}</div>
-   <div>{{item.reminder}}</div>
+   <div>{{item.reminder |  date:'mediumDate' }}</div>
      <div>
          <app-icon [noteData]="item"></app-icon>
      </div>

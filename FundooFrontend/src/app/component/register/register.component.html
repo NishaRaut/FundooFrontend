@@ -2,6 +2,7 @@
 <div fxLayout="row" fxLayoutAlign="center center">
   <mat-card style="background:#e0ebe8c2;margin-top: 150px;">
     <mat-card-content>
+      <div fxLayout="row" fxLayoutAlign="center start" class="Reghead">Fundoo Registration</div>
       <div>
         <mat-form-field appearance="outline">
           <mat-label>Firstname</mat-label>
@@ -25,7 +26,7 @@
           <mat-label>Email</mat-label>
           <input matInput placeholder="Email" name="email" type="email" [formControl]="email" required>
           <mat-icon matSuffix>email</mat-icon>
-          <mat-error *ngIf="email.invalid">Email Name is required </mat-error> 
+          <mat-error *ngIf="email.invalid">Valid Email is required</mat-error> 
          
         </mat-form-field>
       </div>

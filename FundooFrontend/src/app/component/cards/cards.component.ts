@@ -15,7 +15,7 @@ export class CardsComponent implements OnInit {
   archived:boolean=false
   trashed:boolean=false
   message:any;
-
+  get: any
   constructor( private httpService:ServiceService,public dialog: MatDialog,
     private dataService:DataService) {
      
@@ -23,7 +23,16 @@ export class CardsComponent implements OnInit {
 
   ngOnInit() {
     this.getNotes();
-   this. gridView();
+   this.gridView();
+   this.dataService.update.subscribe(
+     message => {
+       this.get = message
+        console.log(this.get);
+        this.getNotes();
+        console.log("data in ngonit",this.data , "here");
+        
+     }
+   )
   }
 
 
@@ -41,9 +50,19 @@ export class CardsComponent implements OnInit {
 
 getNotes(){
   this.dataService.currentMessage.subscribe(
-  
-    (response:any)=>this.data=response
+  data => {
+    this.data=(data as any);
+    console.log("data at card: ", this.data);
+    // this.dataService.updateMessage()
+
+   
+  },
+  error => {
+    console.log("error at card component");
+    
+  }
   );
+  
 }
   // getNotes()
   // {

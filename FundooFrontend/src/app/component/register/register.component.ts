@@ -46,7 +46,7 @@ export class RegisterComponent implements OnInit {
         this.router.navigate(['login'])
         } else {
           console.log(data);
-          this.matsnackbar.open(data.statusMessage, 'ok',{
+          this.matsnackbar.open("Enter valid data", 'ok',{
             duration: 2000
           });
         }

@@ -47,7 +47,7 @@ export class LoginComponent implements OnInit {
           localStorage.setItem("login",data.token);
 
         } else {
-          this.matsnackbar.open(data.statusMessage, 'Login Failed',{
+          this.matsnackbar.open("Enter valid data", 'Login Failed',{
             duration: 2000
           });
      
