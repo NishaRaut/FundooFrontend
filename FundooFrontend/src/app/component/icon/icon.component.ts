@@ -71,31 +71,6 @@ getNoteID()
   }
 
 
-
-  moveToaArchive(id)
-{
-  console.log("movetoArchive");
-}
-
-  archive(){
-    console.log("archive is clicked");
-    console.log(this.noteData);
-    this.data={
-      id:this.noteData.id,
-      isArchive:true
-    }
-    console.log("dsd",this.data.id)
-
-    this.httpService.putRequest('archiveNote/'+this.data.id,null).subscribe(
-      response=>{
-        console.log(response)
-        this.dataService.changemessage(true,false);
-        this.flag = ! this.flag;
-      }
-    );
-
-    
-  }
   reminder(){
     console.log("reminder is clicked");
     console.log(this.noteData);
@@ -172,10 +147,10 @@ this.httpService.postRequest('notes/'+this.noteData.id+'?time='+this.data.remind
 );
 }
 
-  movetotrash(id){
-    console.log("movetotrash");
+  // movetotrash(id){
+  //   console.log("movetotrash");
     
-  }
+  // }
   trash(){
     console.log("trash clicked",this.noteData.id);
     console.log("reminder is clicked");
@@ -200,6 +175,31 @@ this.httpService.postRequest('notes/'+this.noteData.id+'?time='+this.data.remind
   }
 
 
+
+//   moveToaArchive(id)
+// {
+//   console.log("moveToaArchive");
+// }
+
+  archive(){
+    console.log("archive is clicked");
+    console.log(this.noteData);
+    this.data={
+      id:this.noteData.id,
+      isArchive:true
+    }
+    console.log("dsd",this.data.id)
+
+    this.httpService.putRequest('archiveNote/'+this.data.id,null).subscribe(
+      response=>{
+        console.log(response)
+        this.dataService.updateMessage()
+        this.flag = ! this.flag;
+      }
+    );
+
+    
+  }
 
   DeleteNote()
   {

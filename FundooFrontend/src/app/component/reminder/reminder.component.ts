@@ -29,9 +29,11 @@ export class ReminderComponent implements OnInit {
     //   }
     // )
     this.getNotes();
+    console.log("clicked reminder");
+    
       }
 
-
+      
       getNotes() {
         this.httpService.getRequestNote('allNotes',false,false).subscribe(
           response=>{

@@ -8,7 +8,7 @@ import { Reset } from '../model/Reset';
 
 import { Observable } from 'rxjs';
 import { NoteDTO } from '../model/note';
-//import { NoteDTO } from '../model/noteDTO';
+import { LabelDTO }from '../model/LabelDto';
 
 @Injectable({
   providedIn: 'root'
@@ -45,6 +45,12 @@ export class ServiceService {
     observe:'response'});
   }
   postRequest(url,noteDto:NoteDTO): any {
+    return this.http.post(this.url+url,noteDto,{
+      headers:new HttpHeaders().set("jwt_Token",localStorage.getItem("login")), 
+    observe:'response'});
+  }
+
+  postRequest1(url,noteDto:LabelDTO): any {
     return this.http.post(this.url+url,noteDto,{
       headers:new HttpHeaders().set("jwt_Token",localStorage.getItem("login")), 
     observe:'response'});

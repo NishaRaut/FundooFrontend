@@ -27,7 +27,6 @@ export class CardsComponent implements OnInit {
    this.dataService.update.subscribe(
      message => {
        this.get = message
-        console.log(this.get);
         this.getNotes();
         console.log("data in ngonit",this.data , "here");
         

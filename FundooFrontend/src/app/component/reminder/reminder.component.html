@@ -1,18 +1,27 @@
 
  <div  fxLayout="row wrap" fxLayoutGap="50px" style="margin:10px;" >
   <div  *ngFor="let item of data" fxLayout="row wrap">
- <div *ngIf="item.reminder != null" > 
+ 
+   <div *ngIf="item.archive=== true || item.archive=== false">
+      <div *ngIf="item.reminder != null" > 
  <mat-card class="smallcard" [ngStyle]="{'background-color': item.color}">
    <div>{{item.title}}</div>
    <div>{{item.discription}}</div>
    <mat-chip-list *ngIf="item.reminder!= null">
-      <mat-chip>{{item.reminder| date:'short'}}</mat-chip>
+      <mat-chip><div>{{item.reminder| date:'short'}}</div></mat-chip>
       </mat-chip-list>
      <div>
          <app-icon [noteData]="item"></app-icon>
      </div>
    </mat-card> 
+   
  </div> 
+ 
    </div>
+   <!--  <div  *ngIf="item.reminder != null">  
+    <app-archive></app-archive>
+   </div> -->
+  
    </div>  
-
+ 
+</div>

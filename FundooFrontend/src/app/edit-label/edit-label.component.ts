@@ -12,7 +12,7 @@ import { FormControl, Validators } from '@angular/forms';
 export class EditLabelComponent implements OnInit {
   
   constructor(private httpService:ServiceService, private dataService:DataService,private snackbar:MatSnackBar,
-  public dialogRef: MatDialogRef<EditLabelComponent>,
+    private snackBar: MatSnackBar,public dialogRef: MatDialogRef<EditLabelComponent>,
    @Inject(MAT_DIALOG_DATA) public data: any) 
   {
 
@@ -33,7 +33,7 @@ getlabels()
   this.httpService.getRequest('allLabels').subscribe(
     response=>{
       this.data=response['body']
-      console.log("info",this.data)
+      console.log(" labels info",this.data)
     },
     error => {
       console.log('Error', error);
@@ -43,7 +43,23 @@ getlabels()
 }
 create()
 {
-  this.httpService.postRequest('createLabel',null).subscribe(
+  //this.flag = false;
+  
+    const data={
+      "name":this.labelName.value,
+      
+
+    }
+     console.log(this.labelName.value)
+  
+   if(this.labelName.value==='')
+   {
+    this.snackBar.open("fields cant be empty"," ", {
+      duration: 2000,
+    });
+        }
+        else{
+  this.httpService.postRequest1('createLabel',data).subscribe(
     response=>{
 
       console.log(response)
@@ -54,9 +70,10 @@ create()
             duration: 1000,
       });
          }
-    }
+        } 
+   
   );
-
+ }
   }
 }
 

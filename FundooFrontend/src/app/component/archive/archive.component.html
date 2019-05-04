@@ -4,7 +4,13 @@
  <mat-card class="smallcard" [ngStyle]="{'background-color': item.color}">
    <div>{{item.title}}</div>
    <div>{{item.discription}}</div>
-   <div>{{item.reminder |  date:'mediumDate' }}</div>
+   <mat-chip-list *ngIf="item.reminder!= null" >
+   <mat-chip><div>{{item.reminder |  date:'short' }}</div></mat-chip>
+  </mat-chip-list>
+   <!-- <mat-chip-list *ngIf="item.reminder!= null">
+      <mat-chip><div>{{item.reminder| date:'short'}}</div></mat-chip>
+      </mat-chip-list>
+     <div> -->
      <div>
          <app-icon [noteData]="item"></app-icon>
      </div>
