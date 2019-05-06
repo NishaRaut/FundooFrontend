@@ -1,7 +1,7 @@
 
  <div fxLayout="column" fxLayoutAlign="center center" fxFlex="100">
   
-  <mat-toolbar color="WHITE" fxLayout="row">
+  <mat-toolbar class=" tool" color="WHITE" fxLayout="row">
     
       <div class="app-icon" fxLayout="row" fxLayoutAlign="start start" fxLayoutAlign="space-around center" fxFlex="15" fxFlex.xs="25">
         <button mat-icon-button (click)="sidenav.toggle()" fxShow="true">
@@ -32,8 +32,8 @@
         <mat-icon fxFlex="10" (click)="setGridAndListView()">{{icon}}</mat-icon>
           
        
-        <button  mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
-          <mat-icon>account_circle</mat-icon></button>
+        <button  mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu" (click)="openDialog1()">
+          <mat-icon (click)="setProfile()">account_circle</mat-icon></button>
        
        
 
@@ -46,7 +46,7 @@
      <mat-card-footer></mat-card-footer>
      <mat-icon >account_circle</mat-icon>
      <button  routerLink="/register" routerLinkActive="active">add account</button>
-     <button (click)="logout()">sign account</button>
+     <button (click)="logout()">sign out</button>
     </mat-card>
   </mat-menu>
   <!--height: -webkit-fill-available;

@@ -3,7 +3,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Login } from '../model/login';
 import { Register } from '../model/register';
 import { Forgot } from '../model/forgot';
-import { EmailValidator } from '@angular/forms';
 import { Reset } from '../model/Reset';
 
 import { Observable } from 'rxjs';
@@ -44,17 +43,17 @@ export class ServiceService {
       headers:new HttpHeaders().set("jwt_Token",localStorage.getItem("login")), 
     observe:'response'});
   }
-  postRequest(url,noteDto:NoteDTO): any {
-    return this.http.post(this.url+url,noteDto,{
+  postRequest(url,value:any): any {
+    return this.http.post(this.url+url,value,{
       headers:new HttpHeaders().set("jwt_Token",localStorage.getItem("login")), 
     observe:'response'});
   }
 
-  postRequest1(url,noteDto:LabelDTO): any {
-    return this.http.post(this.url+url,noteDto,{
-      headers:new HttpHeaders().set("jwt_Token",localStorage.getItem("login")), 
-    observe:'response'});
-  }
+  // postRequest1(url,labelDto:LabelDTO): any {
+  //   return this.http.post(this.url+url,labelDto,{
+  //     headers:new HttpHeaders().set("jwt_Token",localStorage.getItem("login")), 
+  //   observe:'response'});
+  // }
 
 
   getRequestNote(url,archive:boolean,trash:boolean): any {

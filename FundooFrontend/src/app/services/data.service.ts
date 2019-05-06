@@ -33,6 +33,10 @@ export class DataService {
 
   }
 
+  ngOnInit(){
+    
+  }
+
 
   updateMessage() {
     this.httpService.getRequestNote('allNotes', this.archived, this.trashed).subscribe(

@@ -4,6 +4,7 @@ import { EditLabelComponent } from 'src/app/edit-label/edit-label.component';
 import { MatDialog } from '@angular/material';
 import { ServiceService } from 'src/app/services/service.service';
 import { DataService } from 'src/app/services/data.service';
+import { ProfileComponent } from 'src/app/profile/profile.component';
 
 
 @Component({
@@ -22,7 +23,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
    // console.log("nisha",this.item);
-    this.getNotes();
+    this.getLabels();
   }
 
   logout()
@@ -68,7 +69,7 @@ setGridAndListView(){
   }
   }
 
-getNotes()
+getLabels()
 {
 
   console.log("Hiiiiiiiii")
@@ -84,5 +85,20 @@ getNotes()
   )
 }
 
+
+openDialog1(): void {
+  const dialogRef = this.dialog.open(ProfileComponent, {
+    width: '350px',
+  });
+
+  dialogRef.afterClosed().subscribe(result => {
+    console.log('The dialog was closed');
+  });
+}
+
+setProfile()
+{
+  this.httpService.putRequest('user/profileupload',null)
+}
 }
 

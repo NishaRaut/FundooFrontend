@@ -12,6 +12,8 @@ import { ForgotComponent } from './component/forgot/forgot.component';
 import { ResetComponent } from './component/reset/reset.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LayoutModule } from '@angular/cdk/layout';
+
+
 import {
   MatAutocompleteModule,
   MatBadgeModule,
@@ -47,7 +49,7 @@ import {
   MatToolbarModule,
   MatTooltipModule,
   MatTreeModule,
-
+  
 } from '@angular/material';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { AddnoteComponent } from './component/addnote/addnote.component';
@@ -61,6 +63,8 @@ import { DialogComponent } from './dialog/dialog.component';
 import { EditLabelComponent } from './edit-label/edit-label.component';
 
 import { DataService } from './services/data.service';
+import { ProfileComponent } from './profile/profile.component';
+import { ImageCropperModule } from 'ngx-image-cropper';
 
 
 
@@ -81,6 +85,7 @@ import { DataService } from './services/data.service';
      TrashComponent,
      DialogComponent,
      EditLabelComponent,
+     ProfileComponent,
     
 
 
@@ -108,7 +113,9 @@ import { DataService } from './services/data.service';
         HttpClientModule,
         MatMenuModule,
         LayoutModule,
-        MatToolbarModule
+        MatToolbarModule,
+        ImageCropperModule
+       
 
 
   ],

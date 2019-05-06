@@ -11,6 +11,7 @@ import { CardsComponent } from './component/cards/cards.component';
 import { ArchiveComponent } from './component/archive/archive.component';
 import { ReminderComponent } from './component/reminder/reminder.component';
 import { TrashComponent } from './component/trash/trash.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 const routes: Routes = [
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'reset', component: ResetComponent },
   { path: 'icon', component: IconComponent },
   { path: '', component: LoginComponent },
+  { path: 'profile', component: ProfileComponent },
   // { path: 'notes', component: CardsComponent },
   {path:'reset/:token',component:ResetComponent},
   { path: 'dashboard', component: DashboardComponent,
