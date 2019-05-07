@@ -40,62 +40,56 @@ export class CardsComponent implements OnInit {
     this.dataService.currentMessageGrid.subscribe(
       response => {
         console.log("hiiii")
-        console.log("list...", response)
+        console.log("list...................", response)
         this.message = response;
         console.log("list...", this.message)
       }
     );
   }
 
-  getNotes() {
+  // getNotes() {
 
-    this.dataService.currentMessage.subscribe(
-      data => {
-        this.data = (data as any);
-        console.log("data at card: ", this.data);
-        // this.dataService.updateMessage()
+  //   this.dataService.currentMessage.subscribe(
+  //     data => {
+  //       this.data = (data as any);
+  //       console.log("data at card: ", this.data);
+  //       // this.dataService.updateMessage()
 
-
-      },
-      error => {
-        console.log("error at card component");
-
-      }
-    );
-
-  }
-  // getNotes()
-  // {
-  //   this.httpService.getRequestNote('allNotes',this.archived,this.trashed).subscribe(
-  //     response=>{
-  //       this.data=response['body']
-  //       console.log("info",this.data)
 
   //     },
   //     error => {
-  //       console.log('Error', error);
+  //       console.log("error at card component");
   //     }
+  //   );
 
-
-  //   )
   // }
+  getNotes()
+  {
+    this.httpService.getRequestNote('allNotes',this.archived,this.trashed).subscribe(
+      response=>{
+        this.data=response['body']
+        console.log("info",this.data)
+
+      },
+      error => {
+        console.log('Error', error);
+      }
+    )
+  }
   openDialog(item): void {
     const dialogRef = this.dialog.open(DialogComponent, {
       width: '500px',
-
       height: '200px',
-      // data: {name:'info'}
+    
 
       data: {
-        // id: item.userid,
+      
         title: item.title,
         discription: item.discription,
         color: item.color,
         noteId: item.id,
         reminder: item.reminder,
-        //  label:item.label,
-        //  collabuser:data.collabuser
-
+       
 
 
       }

@@ -10,7 +10,6 @@ import { DataService } from 'src/app/services/data.service';
 export class TrashComponent implements OnInit {
  @Input() noteData:any;
   data:any[];
- //@Input() noteID:any;
   constructor( private dataService:DataService,private httpService:ServiceService) {
     this.dataService.changemessage(false,true);
    }

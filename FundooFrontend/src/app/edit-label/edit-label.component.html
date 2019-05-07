@@ -14,7 +14,8 @@
     <div *ngFor="let labels of data" fxLayout="row" fxLayoutAlign="column">
     <div (mouseover)="changeText=true" (mouseout)="changeText=false">
     <span *ngIf="!changeText">
-    <img src="../../assets/images/label.svg"  style="margin-left: 8px;">
+    <img src="../../assets/images/label.svg"
+    style="margin-left: 8px;">
     </span>
     <span *ngIf="changeText">
     <mat-icon class="delete" (click)="deleteLabel(labels)">delete</mat-icon>

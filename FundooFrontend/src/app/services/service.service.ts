@@ -80,6 +80,17 @@ export class ServiceService {
   //   console.log("data on updateNOte", data);
   //   return this.http.post(this.url+'updateNote' + '/', data)
   //   }
-  
+
+
+
+ public uploadProfileImage(url,file: File):any
+{
+  let formdata: FormData = new FormData();
+  formdata.append('File',file);
+  return this.http.put(this.url+url,formdata,{
+    headers:new HttpHeaders().set("jwt_Token",localStorage.getItem("login")), 
+  observe:'response'});
+}
+
 }
 

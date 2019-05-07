@@ -1,24 +1,27 @@
-<div  fxLayout="row" fxLayoutAlign="center center">
-  <mat-card class="card"  *ngIf="flag==false"  (click)="showNote()">
+<mat-card class="card"  *ngIf="flag==false"  (click)="showNote()" >
+      <div  fxLayout="row" fxLayoutAlign="center center">
+    <div fxLayout="row" fxLayoutAlign="start start">
       <input class="input" matInput placeholder="Take a note..."  >
-      
-  <button mat-icon-button style="margin-left: 80px;">
+     </div> 
+     <div  fxLayout="row" fxLayoutAlign="end start" >
+  <button mat-icon-button>
   <mat-icon matTooltip="New list">assignment_turned_in</mat-icon>
   </button>
 
-  <button mat-icon-button style="margin-left: 10px;">
+  <button mat-icon-button >
     <mat-icon matTooltip="New note with drawing">brush</mat-icon>
   </button>
-  <button mat-icon-button style="margin-left: 10px;">
+  <button mat-icon-button >
       <mat-icon matTooltip="New note with image">image</mat-icon>
       </button>
-    
+    </div> 
+  </div >
   </mat-card>
-</div >
+
 
 
 <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px" >
-    <mat-card class="secondcard"  *ngIf="flag==true" >
+    <mat-card [style.backgroundColor]="setColor" class="secondcard"  *ngIf="flag==true" >
       <div >
     <input class="title" type="text" placeholder="Title..." [formControl]="title">
     </div> 
@@ -29,7 +32,7 @@
      </div>
      <mat-card-footer>
     <div fxLayout="row" fxLayoutAlign="space-between end">
-     <app-icon></app-icon>
+     <app-icon  (countChange)="receiveColorEvent($event)"></app-icon>
      <button mat-button (click)="createNote()">close</button>
      <!-- <button (click)=" createNote()">close</button> -->
     </div>

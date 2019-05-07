@@ -24,17 +24,17 @@ export class DataService {
 
   constructor(private httpService: ServiceService) {
 
-    this.httpService.getRequestNote('allNotes', this.archived, this.trashed).subscribe(
-      response => {
-        this.messageSource.next(response.body)
-        console.log(response)
-      }
-    )
+    // this.httpService.getRequestNote('allNotes', this.archived, this.trashed).subscribe(
+    //   response => {
+    //     this.messageSource.next(response.body)
+    //     console.log(response)
+    //   }
+    // )
 
   }
 
-  ngOnInit(){
-    
+  ngOnInit() {
+
   }
 
 
@@ -44,7 +44,6 @@ export class DataService {
         this.messageSource.next(response.body)
       }
     )
-
   }
 
   changemessage(archive: boolean, trash: boolean) {
@@ -69,7 +68,7 @@ export class DataService {
     this.messageSourceGrid.next(message)
   }
 
-    private updateSource = new BehaviorSubject('default message');
+  private updateSource = new BehaviorSubject('default message');
   update = this.updateSource.asObservable();
 
 

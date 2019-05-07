@@ -16,7 +16,9 @@ export class IconComponent implements OnInit {
   constructor(private httpService:ServiceService, private dataService :DataService) { }
   flag=false;
   ngOnInit() {
-  //  this.getNoteID()
+
+  // console.log(this.noteData);
+  
   }
   @Output() countChange = new EventEmitter(); 
   
@@ -41,12 +43,12 @@ arrayOfColors=[
   ]
 ]
 
-colorsEditon(name) {
-  console.log(name, 'color........');
-  this.colors=name;
-  console.log(this.colors);
-  this.countChange.emit(name);
-  }
+// colorsEditon(name) {
+//   console.log(name, 'color........');
+//   this.colors=name;
+//   console.log(this.colors);
+//   this.countChange.emit(name);
+//   }
 
 getNoteID()
 {
@@ -58,8 +60,9 @@ getNoteID()
 
   setColor(color)
   {
-
-    console.log(this.noteData.id)
+    this.countChange.emit(color);
+    // console.log("noteData in setcolor: ",this.noteData);
+    if(this.noteData != undefined)
     this.httpService.postRequest('notes/color/'+this.noteData.id+'?color='+this.colors,null).subscribe(
       response=>{
 

@@ -1,8 +1,8 @@
 <div fxLayout="{{message}}" fxLayoutGap="20px">
   <div *ngFor="let item of data">
     <div *ngIf="item.trash!= true">
-      <div *ngIf="item.archive!=true">
-        <mat-card class="smallcard" [ngStyle]="{'background-color': item.color}">
+      <div  *ngIf="item.archive!=true">
+        <mat-card  class="smallcard" [ngStyle]="{'background-color': item.color}">
           <div (click)="openDialog(item)" style=" word-wrap: break-word;">{{item.title}}</div>
           <div style=" word-wrap: break-word;">{{item.discription}}</div>
 

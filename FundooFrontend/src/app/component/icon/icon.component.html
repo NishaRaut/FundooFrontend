@@ -31,7 +31,7 @@
           <div fxLayout="row" fxLayoutGap="10px" style="margin-top: 3px" *ngFor="let colors of arrayOfColors">
           <div *ngFor="let color of colors">
           <button [ngStyle]="{ 'background-color': color.color }"
-          (click)="colorsEditon(color.color)" (click)="setColor(color.color)" matTooltip="{{ color.name }}" mat-mini-fab></button>
+          (click)="setColor(color.color)" matTooltip="{{ color.name }}" mat-mini-fab></button>
           <!--<button mat-icon-button [ngStyle]="{'color': color.colorCode}" (click)="changeColor(color.colorCode)">
         <mat-icon style="font-size: 40px" class="colorIcons">fiber_manual_record</mat-icon>
         </button>  -->
