@@ -65,6 +65,7 @@ import { EditLabelComponent } from './edit-label/edit-label.component';
 import { DataService } from './services/data.service';
 import { ProfileComponent } from './profile/profile.component';
 import { ImageCropperModule } from 'ngx-image-cropper';
+import { ColaboratorComponent } from './component/colaborator/colaborator.component';
 
 
 
@@ -86,6 +87,7 @@ import { ImageCropperModule } from 'ngx-image-cropper';
      DialogComponent,
      EditLabelComponent,
      ProfileComponent,
+     ColaboratorComponent,
     
 
 
@@ -119,7 +121,7 @@ import { ImageCropperModule } from 'ngx-image-cropper';
 
 
   ],
-  entryComponents: [DialogComponent,EditLabelComponent
+  entryComponents: [DialogComponent,EditLabelComponent,ColaboratorComponent,
   ],
   providers: [
     ServiceService,

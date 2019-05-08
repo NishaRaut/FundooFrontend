@@ -26,7 +26,7 @@
           
        
         <button  mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu" (click)="openDialog1()" (click)="getImage()">
-            <div class="imageprofile">
+            <div >
                 <img mat-card-avatar class="profile1" src="http://localhost:8080/user/getProfile/{{profilePic}}"/>  
               </div></button>
        
@@ -38,10 +38,13 @@
   
   <mat-menu #menu="matMenu">
       <mat-card >
-     <mat-card-footer></mat-card-footer>
-     <img mat-card-avatar class="profile1" src="http://localhost:8080/user/getProfile/{{profilePic}}"/>
+     <div  fxLayout="row" fxLayoutAlign="center start">
+     <img mat-card-avatar src="http://localhost:8080/user/getProfile/{{profilePic}}"/>
+    </div>
+  <div  fxLayout="row" fxLayoutAlign="center end">
      <button  routerLink="/register" routerLinkActive="active">add account</button>
      <button (click)="logout()">sign out</button>
+    </div>
     </mat-card>
   </mat-menu>
  <div class="sidenav" >

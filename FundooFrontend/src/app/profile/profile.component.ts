@@ -15,6 +15,7 @@ imageChangedEvent: any = '';
 croppedImage;
 constructor(private httpService:DataService,
 
+
   public dialogRef: MatDialogRef<ProfileComponent>) { }
 
 ngOnInit() {

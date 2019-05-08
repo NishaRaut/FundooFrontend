@@ -9,8 +9,11 @@
 
           <div *ngIf="item.reminder!=null">
             <mat-chip-list>
-              <mat-chip>{{item.reminder| date:'mediumDate'}}</mat-chip>
-            </mat-chip-list>
+              <mat-chip [selectable]="selectable"
+              [removable]="removable" (removed)="removeRemainder(item)" >{{item.reminder| date:'mediumDate'}}
+                <mat-icon matChipRemove >cancel</mat-icon>
+              </mat-chip>
+             </mat-chip-list>
           </div>
 
           <app-icon [noteData]="item"></app-icon>

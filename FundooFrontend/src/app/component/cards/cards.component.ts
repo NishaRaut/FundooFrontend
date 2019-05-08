@@ -16,6 +16,8 @@ export class CardsComponent implements OnInit {
   trashed: boolean = false
   message: any;
   get: any
+  reminderValue: any;
+  dateNow : Date = new Date();
   constructor(private httpService: ServiceService, public dialog: MatDialog,
     private dataService: DataService) {
 
@@ -89,10 +91,7 @@ export class CardsComponent implements OnInit {
         color: item.color,
         noteId: item.id,
         reminder: item.reminder,
-       
-
-
-      }
+       }
     });
 
 
@@ -101,6 +100,30 @@ export class CardsComponent implements OnInit {
       console.log('The dialog was closed');
 
     });
+  }
+
+
+  removeReminder(item)
+  {
+    
+    console.log("curremt time",this.dateNow)
+     this.reminderValue= this.dateNow.toISOString();
+    
+     console.log(this.reminderValue);
+    //   this.reminderValue=JSON.stringify(this.date.value);
+       console.log("Reminder Value",this.reminderValue)
+      
+      //  console.log(this.reminder)
+      //  console.log(note.title)
+       
+       this.httpService.postReminder('/notes/remove/',item.noteId).subscribe(
+         response=>{
+          // this.updateService.updateMessage();
+           console.log(response);
+         }
+       )
+       //console.log(note.reminder);
+
   }
 
 }

@@ -26,6 +26,7 @@ export class LoginComponent implements OnInit {
   password = new FormControl('', [Validators.required, Validators.minLength(5)]);
   
   ngOnInit() {
+  
   }
   submit() {
     console.log(this.email.value);
@@ -41,11 +42,15 @@ export class LoginComponent implements OnInit {
           this.matsnackbar.open(' Login Successfully ', 'LogIn', {
             duration: 2000
           });
+          console.log("info nishaaaa",data);
           this.router.navigate(['dashboard']);
+      
          
           //localStorage.removeItem("login");
           localStorage.setItem("login",data.token);
-
+          localStorage.setItem("email",user.email);
+          // console.log("info",data);
+          
         } else {
           this.matsnackbar.open("Enter valid data", 'Login Failed',{
             duration: 2000

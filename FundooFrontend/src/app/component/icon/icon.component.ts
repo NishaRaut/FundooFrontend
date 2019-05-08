@@ -1,6 +1,8 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ServiceService } from 'src/app/services/service.service';
 import { DataService } from 'src/app/services/data.service';
+import { MatDialog } from '@angular/material';
+import { ColaboratorComponent } from '../colaborator/colaborator.component';
 
 @Component({
   selector: 'app-icon',
@@ -13,7 +15,7 @@ export class IconComponent implements OnInit {
   card:any
   colors:any;
  
-  constructor(private httpService:ServiceService, private dataService :DataService) { }
+  constructor(private httpService:ServiceService, public dialog: MatDialog, private dataService :DataService) { }
   flag=false;
   ngOnInit() {
 
@@ -214,7 +216,19 @@ this.httpService.postRequest('notes/'+this.noteData.id+'?time='+this.data.remind
     })
   }
 
+  dialogCol():void {
+    const dialogRef = this.dialog.open(ColaboratorComponent, {
+      width: '450px',
+      height: '250px',
+
+      // data: {name: this.name, animal: this.animal}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      // this.animal = result;
+    });
   }
 
+}
 
-  
