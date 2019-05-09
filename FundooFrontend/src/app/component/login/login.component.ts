@@ -42,13 +42,15 @@ export class LoginComponent implements OnInit {
           this.matsnackbar.open(' Login Successfully ', 'LogIn', {
             duration: 2000
           });
-          console.log("info nishaaaa",data);
+          console.log("info nishaaaa",data.userDto.firstName);
           this.router.navigate(['dashboard']);
       
          
           //localStorage.removeItem("login");
           localStorage.setItem("login",data.token);
           localStorage.setItem("email",user.email);
+          localStorage.setItem("userFirstName",data.userDto.firstName);
+          localStorage.setItem("userLastName",data.userDto.lastName);
           // console.log("info",data);
           
         } else {

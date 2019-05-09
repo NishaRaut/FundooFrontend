@@ -93,10 +93,7 @@ export class CardsComponent implements OnInit {
         reminder: item.reminder,
        }
     });
-
-
-
-    dialogRef.afterClosed().subscribe(result => {
+   dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
 
     });

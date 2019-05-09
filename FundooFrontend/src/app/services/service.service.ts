@@ -63,8 +63,8 @@ export class ServiceService {
   }
 
 
-  putRequest(url,noteDto:NoteDTO): any {
-    return this.http.put(this.url+url,noteDto,{
+  putRequest(url,value:any): any {
+    return this.http.put(this.url+url,value,{
       headers:new HttpHeaders().set("jwt_Token",localStorage.getItem("login")), 
     observe:'response'});
   }
