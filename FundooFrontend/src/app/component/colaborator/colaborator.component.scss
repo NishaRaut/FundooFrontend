@@ -1,7 +1,7 @@
 .colab
 {
     background-color: rgba(230, 227, 227, 0.856); 
-    height:64px;
+    //height:54px;
 }
 /deep/.mat-dialog-container {
     padding: 0;
@@ -11,5 +11,14 @@
     border: none;
     background: transparent;
     outline: none;
-    width: 366px;
+    width: 356px;
 }
+.dialogg
+{
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+// .main-button{
+//     height: 118px;
+// }

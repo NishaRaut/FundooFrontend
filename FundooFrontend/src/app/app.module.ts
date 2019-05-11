@@ -66,6 +66,7 @@ import { DataService } from './services/data.service';
 import { ProfileComponent } from './profile/profile.component';
 import { ImageCropperModule } from 'ngx-image-cropper';
 import { ColaboratorComponent } from './component/colaborator/colaborator.component';
+import { SearchPipe } from './services/search.pipe';
 
 
 
@@ -88,6 +89,7 @@ import { ColaboratorComponent } from './component/colaborator/colaborator.compon
      EditLabelComponent,
      ProfileComponent,
      ColaboratorComponent,
+     SearchPipe,
     
 
 

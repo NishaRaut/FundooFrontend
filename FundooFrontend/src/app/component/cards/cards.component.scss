@@ -15,3 +15,16 @@
 //     width: 205px;
     
 // }
+.cards{
+    padding-left: 80px;
+    padding-right: 80px
+}
+mat-card:hover{
+.mouseover{
+         visibility: visible;
+}
+
+}
+.mouseover{
+    visibility: hidden;
+}

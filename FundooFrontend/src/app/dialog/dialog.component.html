@@ -1,5 +1,5 @@
 <div fxLayout="column" fxLayoutAlign="space-around start" [ngStyle]="{'backgroundColor':color}" class="dialog">
-   <div  > 
+   <div > 
 
   <!-- <div *ngIf="item.trash!=true"> -->
   <!-- <div *ngIf="item.archive!=true"> -->
@@ -16,7 +16,7 @@
     <div>{{data.reminder}}</div>
    <div fxLayout="row" fxLayoutAlign="space-between end" style="height:50px;width: 500px;">
     <app-icon [noteData]="item"></app-icon>
-    <button mat-button (click)="updateNote(data)">Close</button>
+    <button mat-button mat-dialog-close (click)="updateNote(data)">Close</button>
    </div> 
   </div>
 </div>

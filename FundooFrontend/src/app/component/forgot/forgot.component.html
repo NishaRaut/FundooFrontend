@@ -1,25 +1,25 @@
 <div class="imageforgot">
-<div  fxLayout="row" fxLayoutAlign="center center">
-    <mat-card style="background:#464240de; margin-top: 150px;width: 350PX;
-    height: 180px;" >
-        <mat-card-header>
-            <mat-card-title>Fundoo forgot</mat-card-title>
-          </mat-card-header>
-          <mat-card-content>
+    <div fxLayout="row" fxLayoutAlign="center center">
+        <mat-card style="background:#464240de; margin-top: 150px;width: 350PX;
+    height: 180px;">
+            <mat-card-header>
+                <mat-card-title>Fundoo forgot</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
                 <div>
-                    <mat-form-field appearance="outline"  style="width: 350px" >
+                    <mat-form-field appearance="outline" style="width: 350px">
                         <mat-label>Email</mat-label>
                         <input matInput placeholder="Email" name="email" type="email" [formControl]="email">
                         <mat-icon matSuffix>email</mat-icon>
-                        <mat-error *ngIf="email.invalid">Valid Email is required </mat-error> 
-                       </mat-form-field>
+                        <mat-error *ngIf="email.invalid">Valid Email is required </mat-error>
+                    </mat-form-field>
                 </div>
-                     <div fxLayoutGap="50px">
-                        <button mat-raised-button  color="primary" (click)="submit()">Submit</button>
-                       <button mat-raised-button color="primary">Clear</button> 
-                       </div>
-           
-          </mat-card-content>
-          </mat-card>
-</div>
+                <div fxLayoutGap="50px">
+                    <button mat-raised-button color="primary" (click)="submit()">Submit</button>
+                    <button mat-raised-button color="primary">Clear</button>
+                </div>
+
+            </mat-card-content>
+        </mat-card>
+    </div>
 </div>

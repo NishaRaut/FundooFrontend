@@ -11,8 +11,8 @@ import { MatSnackBar } from '@angular/material';
 })
 export class ForgotComponent implements OnInit {
 
-  constructor( private serviceService: ServiceService, private router: Router
-    ,private snackbar:MatSnackBar) { }
+  constructor(private serviceService: ServiceService, private router: Router
+    , private snackbar: MatSnackBar) { }
   email = new FormControl('', [Validators.required, Validators.email]);
 
   ngOnInit() {
@@ -20,21 +20,21 @@ export class ForgotComponent implements OnInit {
   submit() {
     console.log(this.email.value);
     const user = {
-      email : this.email.value
+      email: this.email.value
     };
 
-    this.serviceService.forgot('forgetPassword?email='+this.email.value).subscribe(
+    this.serviceService.forgot('forgetPassword?email=' + this.email.value).subscribe(
       data => {
-        console.log(data);-
-        console.log("hello",data.code)
-        console.log("hello",data.statusCode)
+        console.log(data); -
+          console.log("hello", data.code)
+        console.log("hello", data.statusCode)
         if (data.statusCode === 200) {
           this.snackbar.open(data.statusMessage, ' Forgot SuccessFully', {
             duration: 3000,
-        
+
           });
           this.router.navigate(['login']);
-  
+
         } else {
           console.log(data);
           this.snackbar.open(data.statusMessage, ' forgot failed');

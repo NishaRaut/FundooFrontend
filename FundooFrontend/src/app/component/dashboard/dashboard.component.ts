@@ -36,7 +36,7 @@ export class DashboardComponent implements OnInit {
     this.router.navigate(['dashboard', 'addnote']);
     this.dataService.changeMsg('update');
   }
-  
+
   archive() {
     this.router.navigate(['dashboard', 'archive']);
   }
@@ -61,20 +61,20 @@ export class DashboardComponent implements OnInit {
   setGridAndListView() {
     if (this.icon === 'view_stream') {
       this.icon = 'dashboard';
-      console.log("hiiii....",this.icon)
+      console.log("hiiii....", this.icon)
       this.dataService.viewChangeMsg('column wrap')
     } else {
       this.icon = "view_stream";
-      console.log("ghhjj",this.icon)
+      console.log("ghhjj", this.icon)
       this.dataService.viewChangeMsg('row wrap')
     }
   }
 
 
-  getImage(){
-    this.profilePic=localStorage.getItem("login");
-    
-    console.log("4444444444"+this.profilePic);
+  getImage() {
+    this.profilePic = localStorage.getItem("login");
+
+    console.log("4444444444" + this.profilePic);
   }
 
   getLabels() {
@@ -113,23 +113,20 @@ export class DashboardComponent implements OnInit {
     const dialogRef = this.dialog.open(ProfileComponent,
       {
         width: '400px',
-        height:'500px'
+        height: '500px'
       });
-  
-      dialogRef.afterClosed().subscribe(
-        (x:any) =>
-        {
-          if(x!=null)
-          { 
-            console.log("hjkjhkjh",x.file)
-            this.httpService.uploadProfileImage('user/profileupload', x.file).subscribe(
-            value =>
-            {
+
+    dialogRef.afterClosed().subscribe(
+      (x: any) => {
+        if (x != null) {
+          console.log("hjkjhkjh", x.file)
+          this.httpService.uploadProfileImage('user/profileupload', x.file).subscribe(
+            value => {
               console.log(value);
             }
           );
-          }
-})
+        }
+      })
   }
 }
 

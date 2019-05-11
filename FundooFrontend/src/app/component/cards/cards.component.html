@@ -1,22 +1,25 @@
-<div fxLayout="{{message}}" fxLayoutGap="20px">
+<div fxLayout="{{message}}" fxLayoutGap="20px" class="cards" >
   <div *ngFor="let item of data">
     <div *ngIf="item.trash!= true">
       <div  *ngIf="item.archive!=true">
         <mat-card  class="smallcard" [ngStyle]="{'background-color': item.color}">
-          <div (click)="openDialog(item)" style=" word-wrap: break-word;">{{item.title}}</div>
-          <div style=" word-wrap: break-word;">{{item.discription}}</div>
+          <div fxLayout="row" fxLayoutAlign="start start" >
+          <div (click)="openDialog(item)" style=" word-wrap: break-word;width: 200px;">{{item.title}}</div>
+          <img src="../../../assets/pin.svg" class="mouseover">
+        </div>
+          <div style=" word-wrap: break-word; height: 24px;">{{item.discription}}</div>
 
 
           <div *ngIf="item.reminder!=null">
             <mat-chip-list>
               <mat-chip [selectable]="selectable"
               [removable]="removable" (removed)="removeRemainder(item)" >{{item.reminder| date:'mediumDate'}}
-                <mat-icon matChipRemove >cancel</mat-icon>
+               <div class="mouseover"><mat-icon matChipRemove >cancel</mat-icon></div>
               </mat-chip>
              </mat-chip-list>
           </div>
 
-          <app-icon [noteData]="item"></app-icon>
+         <div class="mouseover"> <app-icon [noteData]="item"></app-icon></div>
 
         </mat-card>
       </div>
