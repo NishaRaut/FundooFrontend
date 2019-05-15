@@ -43,7 +43,7 @@ export class ResetComponent implements OnInit {
 
             });
             this.router.navigate(['login']);
-           
+
             localStorage.setItem("login", data.token);
 
 

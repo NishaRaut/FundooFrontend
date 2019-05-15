@@ -20,7 +20,7 @@ export class AddnoteComponent implements OnInit {
   title = new FormControl('', [Validators.required, Validators.minLength(2)]);
   description = new FormControl('', [Validators.required, Validators.minLength(2)]);
   setColor: any;
-  constructor(private httpService: ServiceService, private snackBar: MatSnackBar, private dataService: DataService) { }
+  constructor(private httpService: ServiceService, private snackBar: MatSnackBar, private dataService: DataService,  private snackbar: MatSnackBar) { }
   flag = false;
 
   ngOnInit() {
@@ -32,11 +32,11 @@ export class AddnoteComponent implements OnInit {
     )
 
   }
-  receiveColorEvent($event){
+  receiveColorEvent($event) {
     // console.log("event at add note: ",$event);
     this.setColor = $event;
     // console.log(this.setColor);
-    
+
   }
 
   showNote() {
@@ -69,10 +69,22 @@ export class AddnoteComponent implements OnInit {
           this.flag = !this.flag;
           // this.dataService.updateMessage();
           this.child.getNotes();
+          if (response.body.statusCode == 900) {
+            this.snackbar.open(response.body.statusMessage + ' !!', 'End now', {
+              duration: 1000,
+            });
+           // this.dataService.updateMessage();
+          }
+
+      error => {
+        console.log('Error', error);
+      }
         }
       );
 
-
+      // this.title=null;
+      // this.description=null;
+      this.flag= true;
     }
 
   }

@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material';
 import { DialogComponent } from 'src/app/dialog/dialog.component';
 import { Data } from '@angular/router';
 import { DataService } from 'src/app/services/data.service';
+import { SearchService } from 'src/app/services/search.service';
 
 @Component({
   selector: 'app-cards',
@@ -15,11 +16,12 @@ export class CardsComponent implements OnInit {
   archived: boolean = false
   trashed: boolean = false
   message: any;
-  get: any
+  get: any;
+  searchText:string;
   reminderValue: any;
-  dateNow : Date = new Date();
+  dateNow: Date = new Date();
   constructor(private httpService: ServiceService, public dialog: MatDialog,
-    private dataService: DataService) {
+    private dataService: DataService,private searchService:SearchService) {
 
   }
 
@@ -65,12 +67,14 @@ export class CardsComponent implements OnInit {
   //   );
 
   // }
-  getNotes()
-  {
-    this.httpService.getRequestNote('allNotes',this.archived,this.trashed).subscribe(
-      response=>{
-        this.data=response['body']
-        console.log("info",this.data)
+  getNotes() {
+    this.httpService.getRequestNote('allNotes', this.archived, this.trashed).subscribe(
+      response => {
+        this.searchService.currentMessageSearch.subscribe(response=>{
+          this.searchText=response
+          })
+        this.data = response['body']
+        console.log("info", this.data)
 
       },
       error => {
@@ -82,44 +86,43 @@ export class CardsComponent implements OnInit {
     const dialogRef = this.dialog.open(DialogComponent, {
       width: '500px',
       height: '200px',
-    
+
 
       data: {
-      
+
         title: item.title,
         discription: item.discription,
         color: item.color,
         noteId: item.id,
         reminder: item.reminder,
-       }
+      }
     });
-   dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
 
     });
   }
 
 
-  removeReminder(item)
-  {
-    
-    console.log("curremt time",this.dateNow)
-     this.reminderValue= this.dateNow.toISOString();
-    
-     console.log(this.reminderValue);
+  removeReminder(item) {
+
+    console.log("curremt time", this.dateNow)
+    this.reminderValue = this.dateNow.toISOString();
+
+    console.log(this.reminderValue);
     //   this.reminderValue=JSON.stringify(this.date.value);
-       console.log("Reminder Value",this.reminderValue)
-      
-      //  console.log(this.reminder)
-      //  console.log(note.title)
-       
-       this.httpService.postReminder('/notes/remove/',item.noteId).subscribe(
-         response=>{
-          // this.updateService.updateMessage();
-           console.log(response);
-         }
-       )
-       //console.log(note.reminder);
+    console.log("Reminder Value", this.reminderValue)
+
+    //  console.log(this.reminder)
+    //  console.log(note.title)
+
+    this.httpService.postReminder('/notes/remove/', item.noteId).subscribe(
+      response => {
+        // this.updateService.updateMessage();
+        console.log(response);
+      }
+    )
+    //console.log(note.reminder);
 
   }
 

@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, CanActivate } from '@angular/router';
 import { LoginComponent } from './component/login/login.component';
 import { RegisterComponent } from './component/register/register.component';
 import { ForgotComponent } from './component/forgot/forgot.component';
@@ -12,6 +12,7 @@ import { ArchiveComponent } from './component/archive/archive.component';
 import { ReminderComponent } from './component/reminder/reminder.component';
 import { TrashComponent } from './component/trash/trash.component';
 import { ProfileComponent } from './profile/profile.component';
+import { AuthguardService as AuthGuard } from './services/auth-guard.service';
 
 
 const routes: Routes = [
@@ -25,6 +26,7 @@ const routes: Routes = [
   // { path: 'notes', component: CardsComponent },
   {path:'reset/:token',component:ResetComponent},
   { path: 'dashboard', component: DashboardComponent,
+  canActivate: [AuthGuard] ,
   children:[
     { path: 'addnote', component: AddnoteComponent },
     { path: '', component: AddnoteComponent },

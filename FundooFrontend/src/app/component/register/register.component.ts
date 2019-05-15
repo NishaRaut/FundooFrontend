@@ -14,7 +14,7 @@ export class RegisterComponent implements OnInit {
   id: any;
 
   constructor(private formBuilder: FormBuilder, private serviceService: ServiceService,
-              private matsnackbar: MatSnackBar, private router: Router) { }
+    private matsnackbar: MatSnackBar, private router: Router) { }
 
   firstName = new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z]*'), Validators.minLength(3)]);
   lastName = new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z]*'), Validators.minLength(3)]);
@@ -23,31 +23,30 @@ export class RegisterComponent implements OnInit {
   mobileNumber = new FormControl('', Validators.required);
 
   ngOnInit() { }
-  
+
   submit() {
     const user = {
-      firstName : this.firstName.value,
-      lastName : this.lastName.value,
-      email : this.email.value,
-      password : this.password.value,
-      mobileNumber : this.mobileNumber.value
+      firstName: this.firstName.value,
+      lastName: this.lastName.value,
+      email: this.email.value,
+      password: this.password.value,
+      mobileNumber: this.mobileNumber.value
     };
 
     console.log(this.firstName.value);
     this.serviceService.register(user).subscribe(
       data => {
         console.log(data);
-         // tslint:disable-next-line:triple-equals
-        if (data.statusCode == 200) 
-        {
+        // tslint:disable-next-line:triple-equals
+        if (data.statusCode == 200) {
           this.matsnackbar.open(' register Successfully ', 'register', {
             duration: 2000,
           });
-        this.router.navigate(['login'])
-      
+          this.router.navigate(['login'])
+
         } else {
           console.log(data);
-          this.matsnackbar.open("Enter valid data", 'ok',{
+          this.matsnackbar.open("Enter valid data", 'ok', {
             duration: 2000
           });
         }

@@ -67,6 +67,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { ImageCropperModule } from 'ngx-image-cropper';
 import { ColaboratorComponent } from './component/colaborator/colaborator.component';
 import { SearchPipe } from './services/search.pipe';
+import { PinComponent } from './component/pin/pin.component';
 
 
 
@@ -90,6 +91,7 @@ import { SearchPipe } from './services/search.pipe';
      ProfileComponent,
      ColaboratorComponent,
      SearchPipe,
+     PinComponent,
     
 
 

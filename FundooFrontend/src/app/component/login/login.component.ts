@@ -21,43 +21,43 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
 
 
-  constructor(private matsnackbar :MatSnackBar,private formBuilder: FormBuilder, private serviceService: ServiceService, private router: Router) { }
+  constructor(private matsnackbar: MatSnackBar, private formBuilder: FormBuilder, private serviceService: ServiceService, private router: Router) { }
   email = new FormControl('', [Validators.required, Validators.email]);
   password = new FormControl('', [Validators.required, Validators.minLength(5)]);
-  
+
   ngOnInit() {
-  
+
   }
   submit() {
     console.log(this.email.value);
     const user = {
-      email : this.email.value,
-      password : this.password.value
+      email: this.email.value,
+      password: this.password.value
     };
     this.serviceService.login(user).subscribe(
       data => {
-      
-       console.log(data)
+
+        console.log(data)
         if (data.statuscode == 200) {
           this.matsnackbar.open(' Login Successfully ', 'LogIn', {
             duration: 2000
           });
-          console.log("info nishaaaa",data.userDto.firstName);
+          console.log("info nishaaaa", data.userDto.firstName);
           this.router.navigate(['dashboard']);
-      
-         
+
+
           //localStorage.removeItem("login");
-          localStorage.setItem("login",data.token);
-          localStorage.setItem("email",user.email);
-          localStorage.setItem("userFirstName",data.userDto.firstName);
-          localStorage.setItem("userLastName",data.userDto.lastName);
+          localStorage.setItem("login", data.token);
+          localStorage.setItem("email", user.email);
+          localStorage.setItem("userFirstName", data.userDto.firstName);
+          localStorage.setItem("userLastName", data.userDto.lastName);
           // console.log("info",data);
-          
+
         } else {
-          this.matsnackbar.open("Enter valid data", 'Login Failed',{
+          this.matsnackbar.open("Enter valid data", 'Login Failed', {
             duration: 2000
           });
-     
+
         }
       },
 
@@ -66,9 +66,8 @@ export class LoginComponent implements OnInit {
       }
     );
   }
-  register()
-  {
+  register() {
     this.router.navigate(['register']);
   }
- 
+
 }

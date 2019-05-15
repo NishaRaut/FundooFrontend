@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { EditLabelComponent } from 'src/app/edit-label/edit-label.component';
-import { MatDialog } from '@angular/material';
+import { MatDialog, MatSnackBar } from '@angular/material';
 import { ServiceService } from 'src/app/services/service.service';
 import { DataService } from 'src/app/services/data.service';
 import { ProfileComponent } from 'src/app/profile/profile.component';
+import { SearchService } from 'src/app/services/search.service';
 
 
 @Component({
@@ -15,12 +16,14 @@ import { ProfileComponent } from 'src/app/profile/profile.component';
 export class DashboardComponent implements OnInit {
   // item:any[];
   labels: any;
+  search:string;
+  titlename:string;
   data: any[];
   profilePic: any;
   icon: any = "view_stream"
   constructor
     (private router: Router, public dialog: MatDialog, private httpService: ServiceService,
-      private dataService: DataService) { }
+      private dataService: DataService,private searchService:SearchService,private snackBar:MatSnackBar) { }
 
   ngOnInit() {
     // console.log("nisha",this.item);
@@ -44,8 +47,13 @@ export class DashboardComponent implements OnInit {
     this.router.navigate(['dashboard', 'trash']);
   }
   reminder() {
-    this.router.navigate(['dashboard', 'reminder']);
-  }
+    
+      this.titlename="Reminder"
+      this.router.navigateByUrl('/dashboard/reminder');
+      // this.snackBar.open('Clicked Reminder', '', {
+      // duration: 2000,
+      // });
+      }
   openDialog(): void {
     const dialogRef = this.dialog.open(EditLabelComponent, {
       width: '350px',
@@ -107,6 +115,10 @@ export class DashboardComponent implements OnInit {
     this.httpService.putRequest('user/profileupload', null)
   }
 
+  lookup(){
+    this.searchService.changeMessageSearch(this.search);
+    }
+
 
 
   openDialog1() {
@@ -128,5 +140,7 @@ export class DashboardComponent implements OnInit {
         }
       })
   }
+
+  
 }
 

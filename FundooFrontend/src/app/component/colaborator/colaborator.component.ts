@@ -14,7 +14,7 @@ export class ColaboratorComponent implements OnInit {
   //data:any;
   email = new FormControl('', [Validators.required, Validators.email]);
   colabData: any;
-  
+
   constructor(private httpService: ServiceService, private snackBar: MatSnackBar, @Inject(MAT_DIALOG_DATA) public data: any) { }
 
   ngOnInit() {
@@ -48,24 +48,23 @@ export class ColaboratorComponent implements OnInit {
 
     )
   }
-  removeColab(item)
-  {
-   console.log("#######",this.data.id);
-   console.log("!!!!!!!!",item.email)
-   this.httpService.putRequest('notes/removecollaborator/'+this.data.id,item.email).subscribe(
-    response=> {
-     console.log("ddddddd",response)
-    
-     if(response.body.statusCode == 4){
-       this.snackBar.open("reminder removed successfully", 'End now', {
-         duration: 1000,
-   });
-   //this.dataService.updateMessage();
+  removeColab(item) {
+    console.log("#######", this.data.id);
+    console.log("!!!!!!!!", item.email)
+    this.httpService.putRequest('notes/removecollaborator/' + this.data.id, item.email).subscribe(
+      response => {
+        console.log("ddddddd", response)
+
+        if (response.body.statusCode == 4) {
+          this.snackBar.open("reminder removed successfully", 'End now', {
+            duration: 1000,
+          });
+          //this.dataService.updateMessage();
+        }
+
       }
-       
-     }
-   )
- }
+    )
+  }
   writeEmail() {
     //this.flag = false;
 
@@ -84,7 +83,7 @@ export class ColaboratorComponent implements OnInit {
     else {
       console.log("hello Id", this.data.id)
       console.log("Email", data.email)
-      this.httpService.getRequest('notes/removecollaborator/{id}?email=item.email&id=this.data.id').subscribe(
+      this.httpService.putRequest('/notes/addcollaborator/'+this.data.id+'?email='+this.email.value,null).subscribe(
         response => {
 
           console.log(response)

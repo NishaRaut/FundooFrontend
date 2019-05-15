@@ -12,6 +12,8 @@ export class DataService {
   currentMessage = this.messageSource.asObservable();
 
 
+
+  
   private messageSourceGrid = new BehaviorSubject('row wrap');
 
   currentMessageGrid = this.messageSourceGrid.asObservable();
@@ -45,6 +47,8 @@ export class DataService {
       }
     )
   }
+
+
 
   changemessage(archive: boolean, trash: boolean) {
 

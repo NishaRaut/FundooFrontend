@@ -8,35 +8,33 @@ import { MatDialogRef } from '@angular/material';
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
-  
- 
-data:any;
-imageChangedEvent: any = '';
-croppedImage;
-constructor(private httpService:DataService,
 
 
-  public dialogRef: MatDialogRef<ProfileComponent>) { }
+  data: any;
+  imageChangedEvent: any = '';
+  croppedImage;
+  constructor(private httpService: DataService,
 
-ngOnInit() {
 
-}
+    public dialogRef: MatDialogRef<ProfileComponent>) { }
 
-fileChangeEvent(event: any): void {
-  this.imageChangedEvent = event;
-}
+  ngOnInit() {
 
-imageCropped(event:any) {
-console.log(event);
-this.croppedImage = event;
-}
- 
-setProfile()
-{
-  if(this.croppedImage!=null)
-  {
-    this.dialogRef.close(this.croppedImage);
   }
-}
+
+  fileChangeEvent(event: any): void {
+    this.imageChangedEvent = event;
+  }
+
+  imageCropped(event: any) {
+    console.log(event);
+    this.croppedImage = event;
+  }
+
+  setProfile() {
+    if (this.croppedImage != null) {
+      this.dialogRef.close(this.croppedImage);
+    }
+  }
 
 }

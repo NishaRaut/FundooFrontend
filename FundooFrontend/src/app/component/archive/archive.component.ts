@@ -9,26 +9,25 @@ import { DataService } from 'src/app/services/data.service';
 })
 export class ArchiveComponent implements OnInit {
   // @Input() noteData:any;
-  data:any[];
- //@Input() noteID:any;
-  constructor( private dataService:DataService,private httpService:ServiceService) {
-    this.dataService.changemessage(true,false);
-   }
-id:any;
+  data: any[];
+  //@Input() noteID:any;
+  constructor(private dataService: DataService, private httpService: ServiceService) {
+    this.dataService.changemessage(true, false);
+  }
+  id: any;
   ngOnInit() {
     this.dataService.currentMessage.subscribe(
-      (response:any)=>{
-        this.data=response['body']
-        console.log("archive note",this.data)
+      (response: any) => {
+        this.data = response['body']
+        console.log("archive note", this.data)
       }
-    
+
     )
-    
+
   }
 
-  getId(item)
-{
-  this.id=item.id
-}
+  getId(item) {
+    this.id = item.id
+  }
 
 }

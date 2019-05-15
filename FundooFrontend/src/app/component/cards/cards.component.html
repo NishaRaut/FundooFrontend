@@ -1,7 +1,8 @@
-<div fxLayout="{{message}}" fxLayoutGap="20px" class="cards" >
-  <div *ngFor="let item of data">
+<div fxLayout="{{message}}" fxLayoutGap="25px" class="cards" >
+  <div *ngFor="let item of data | search : searchText">
     <div *ngIf="item.trash!= true">
       <div  *ngIf="item.archive!=true">
+        
         <mat-card  class="smallcard" [ngStyle]="{'background-color': item.color}">
           <div fxLayout="row" fxLayoutAlign="start start" >
           <div (click)="openDialog(item)" style=" word-wrap: break-word;width: 200px;">{{item.title}}</div>
